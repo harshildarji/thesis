@@ -1,0 +1,14 @@
+# Files to ignore
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
+*.run.xml
+*.synctex.gz
+Exposé-blx.bib
+
+# Folders to ignore
+.vscode/
+.ipynb_checkpoints/
+__pycache__/

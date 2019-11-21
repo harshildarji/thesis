@@ -18,14 +18,12 @@ class DeepRNN(nn.Module):
 
         hx = torch.zeros(batch_size, self.hidden_layers[0], dtype=input.dtype, device=input.device)
         out = self.__cell(self.cell_in, input, hx)
-
         for i, hidden_size in enumerate(self.hidden_layers[1:]):
             hx = torch.zeros(batch_size, hidden_size, dtype=input.dtype, device=input.device)
             out = self.__cell(self.cells[i], out, hx)
-
+            
         return out
             
-
     def __cell(self, cell, input, hx):
         dim = 1 if self.batch_first else 0
         n_seq = input.size(dim)

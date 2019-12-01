@@ -2,15 +2,16 @@ import torch
 import torch.nn as nn
 import copy
 
-class DeepRNN(nn.Module):
-    def __init__(self, input_size, hidden_layers : list, batch_first=False, mode='tanh'):
-        super(DeepRNN, self).__init__()
+class PrunedDeepRNN(nn.Module):
+    def __init__(self, input_size, hidden_layers : list, batch_first=False, mode='tanh', theta: float=None):
+        super(PrunedDeepRNN, self).__init__()
         assert len(hidden_layers) > 0
 
         self.input_size = input_size
         self.hidden_layers = hidden_layers
         self.batch_first = batch_first
         self.mode = mode.lower()
+        self.theta = theta
 
         if self.mode == 'gru':
             self.cell_in = nn.GRUCell(input_size, hidden_layers[0])
@@ -25,17 +26,20 @@ class DeepRNN(nn.Module):
             raise ValueError("Unknown value for mode. Expected 'LSTM', 'GRU', 'TANH' or 'RELU', got '{}'.".format(mode))
         
     def forward(self, input):
+        hiddens = []
         batch_size = input.size(0) if self.batch_first else input.size(1)
 
         hx = torch.zeros(batch_size, self.hidden_layers[0], dtype=input.dtype, device=input.device)
-        out = self.__cell(self.cell_in, input, hx)
+        out = self.__cell__(self.cell_in, input, hx)
+        hiddens.append(out)
         for i, hidden_size in enumerate(self.hidden_layers[1:]):
             hx = torch.zeros(batch_size, hidden_size, dtype=input.dtype, device=input.device)
-            out = self.__cell(self.cells[i], out, hx)
+            out = self.__cell__(self.cells[i], out, hx)
+            hiddens.append(out)
             
-        return out
+        return out, hiddens
             
-    def __cell(self, cell, input, hx):
+    def __cell__(self, cell, input, hx):
         dim = 1 if self.batch_first else 0
         n_seq = input.size(dim)
         outputs = []
@@ -49,7 +53,15 @@ class DeepRNN(nn.Module):
                 hx, cx = cell(seq, (hx, cx))
             else:
                 hx = cell(seq, hx)
+            hx = self.__mask__(hx)
             output = cx if self.mode == 'lstm' else hx
             outputs.append(output.unsqueeze(dim))
 
         return torch.cat(outputs, dim=dim)
+
+    def __mask__(self, hx):
+        if self.theta is None:
+            return hx
+        self.mask = torch.ones(hx.shape, dtype=torch.bool)
+        self.mask[torch.where(abs(hx) < self.theta)] = False
+        return hx * self.mask

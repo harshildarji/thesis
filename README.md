@@ -9,3 +9,4 @@ Timeline:
   > Comments:
   >- In addition to hidden-to-hidden matrices, also analyze visible-to-hidden matrices seperately.
   >- While generating random graphs, consider also graphs that respect Kleinberg's Decentralized Search property.
+- Kickoff presentation: **December 09, 2019**

@@ -15,13 +15,13 @@ class PrunedDeepRNN(nn.Module):
 
         if self.mode == 'gru':
             self.cell_in = nn.GRUCell(input_size, hidden_layers[0])
-            self.cells = [nn.GRUCell(hidden_layers[in_size], out_size) for in_size, out_size in enumerate(hidden_layers[1:])]
+            self.cells = nn.ModuleList([nn.GRUCell(hidden_layers[in_size], out_size) for in_size, out_size in enumerate(hidden_layers[1:])])
         elif self.mode == 'lstm':
             self.cell_in = nn.LSTMCell(input_size, hidden_layers[0])
-            self.cells = [nn.LSTMCell(hidden_layers[in_size], out_size) for in_size, out_size in enumerate(hidden_layers[1:])]
+            self.cells = nn.ModuleList([nn.LSTMCell(hidden_layers[in_size], out_size) for in_size, out_size in enumerate(hidden_layers[1:])])
         elif self.mode == 'tanh' or self.mode == 'relu':
             self.cell_in = nn.RNNCell(input_size, hidden_layers[0], nonlinearity=self.mode)
-            self.cells = [nn.RNNCell(hidden_layers[in_size], out_size, nonlinearity=self.mode) for in_size, out_size in enumerate(hidden_layers[1:])]
+            self.cells = nn.ModuleList([nn.RNNCell(hidden_layers[in_size], out_size, nonlinearity=self.mode) for in_size, out_size in enumerate(hidden_layers[1:])])
         else:
             raise ValueError("Unknown value for mode. Expected 'LSTM', 'GRU', 'TANH' or 'RELU', got '{}'.".format(mode))
         

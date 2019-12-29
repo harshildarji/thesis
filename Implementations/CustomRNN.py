@@ -2,9 +2,9 @@ import torch
 import torch.nn as nn
 import copy
 
-class PrunedDeepRNN(nn.Module):
+class DeepRNN(nn.Module):
     def __init__(self, input_size, hidden_layers : list, batch_first=False, mode='tanh', theta: float=None):
-        super(PrunedDeepRNN, self).__init__()
+        super(DeepRNN, self).__init__()
         assert len(hidden_layers) > 0
 
         self.input_size = input_size

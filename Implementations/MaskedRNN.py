@@ -7,7 +7,6 @@ from torch.autograd import Variable
 from torch.nn.parameter import Parameter
  
 import math
-import copy
 import numpy as np
 
 def weight_prune(model, pruning_perc):
@@ -227,3 +226,59 @@ class MaskedGRULayer(WeightBase):
 
         hx = new_gate + input_gate * (hx - new_gate)
         return hx
+
+
+#========== LSTM ==========
+class MaskedDeepLSTM(ModuleBase):
+    """A multi-layer LSTM"""
+    def __init__(self, in_features, hidden_layers: list, batch_first=False):
+        super(MaskedDeepLSTM, self).__init__()
+        self.hidden_layers = hidden_layers
+        self.batch_first = batch_first
+
+        self.recurrent_layers = nn.ModuleList()
+        for l, hidden_size in enumerate(hidden_layers):
+            in_size = in_features if l == 0 else hidden_layers[l-1]
+            self.recurrent_layers.append(MaskedLSTMLayer(in_size, hidden_size, batch_first))
+
+    def step(self, layer, input, hx):
+        in_dim = 1 if self.batch_first else 0
+        n_seq = input.size(in_dim)
+        cx = hx.clone()
+        outputs = []
+
+        for i in range(n_seq):
+            seq = input[:, i, :] if self.batch_first else input[i]
+            hx, cx = layer(seq, (hx, cx))
+            outputs.append(hx.unsqueeze(in_dim))
+
+        return torch.cat(outputs, dim=in_dim)
+
+
+class MaskedLSTMLayer(WeightBase):
+    """Individual LSTM cell"""
+    def __init__(self, input_size, hidden_size, batch_first):
+        super(MaskedLSTMLayer, self).__init__(input_size, hidden_size, batch_first, mode='LSTM')
+
+    def forward(self, input, hx):
+        if self.masked == True:
+            mask_ih, mask_hh = self.get_mask()
+            return self.cell(input, self.weight_ih * mask_ih, hx, self.weight_hh * mask_hh)
+
+        return self.cell(input, self.weight_ih, hx, self.weight_hh)
+
+    def cell(self, input, weight_ih, hx, weight_hh):
+        igate = F.linear(input, weight_ih, self.bias_ih)
+        hgate = F.linear(hx[0], weight_hh, self.bias_hh)
+        gates = igate + hgate
+
+        input_gate, forget_gate, cell_gate, out_gate = gates.chunk(4, 1)
+
+        input_gate = torch.sigmoid(input_gate)
+        forget_gate = torch.sigmoid(forget_gate)
+        cell_gate = torch.tanh(cell_gate)
+        out_gate = torch.sigmoid(out_gate)
+
+        cx = (forget_gate * hx[1]) + (input_gate * cell_gate)
+        hx = out_gate * torch.tanh(cx)
+        return hx, cx

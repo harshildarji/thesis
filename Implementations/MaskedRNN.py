@@ -27,7 +27,7 @@ def weight_prune(model, pruning_perc):
 
 
 class WeightBase(nn.Module):
-	"""Base class for weight initialization"""
+	"""Base class for weight initialization (slightly modified version of __init__ of class nn.RNNBase)"""
 	def __init__(self, input_size, hidden_size, batch_first, mode):
 		super(WeightBase, self).__init__()
 		self.input_size = input_size
@@ -126,6 +126,7 @@ class ModuleBase(nn.Module):
 		return out[:, -1, :] if self.batch_first else out[-1]
 
 
+#========== RNN-[TANH, RELU] ==========
 class MaskedDeepRNN(ModuleBase):
 	"""A multi-layer RNN with TANH or RELU non-linearity"""
 	def __init__(self, in_features, hidden_layers: list, batch_first=False, nonlinearity='tanh'):
@@ -173,3 +174,56 @@ class MaskedRNNLayer(WeightBase):
 		igate = F.linear(input, self.weight_ih, self.bias_ih)
 		hgate = F.linear(hx, self.weight_hh, self.bias_hh)
 		return self.activation(igate + hgate)
+
+
+#========== GRU ==========
+class MaskedDeepGRU(ModuleBase):
+	"""A multi-layer GRU"""
+	def __init__(self, in_features, hidden_layers: list, batch_first=False):
+		super(MaskedDeepGRU, self).__init__()
+		self.hidden_layers = hidden_layers
+		self.batch_first = batch_first
+
+		self.recurrent_layers = nn.ModuleList()
+		for l, hidden_size in enumerate(hidden_layers):
+			in_size = in_features if l == 0 else hidden_layers[l-1]
+			self.recurrent_layers.append(MaskedGRULayer(in_size, hidden_size, batch_first))
+
+	def step(self, layer, input, hx):
+		in_dim = 1 if self.batch_first else 0
+		n_seq = input.size(in_dim)
+		outputs = []
+
+		for i in range(n_seq):
+			seq = input[:, i, :] if self.batch_first else input[i]
+			hx = layer(seq, hx)
+			outputs.append(hx.unsqueeze(in_dim))
+
+		return torch.cat(outputs, dim=in_dim)
+
+
+class MaskedGRULayer(WeightBase):
+	"""Individual GRU cell"""
+	def __init__(self, input_size, hidden_size, batch_first):
+		super(MaskedGRULayer, self).__init__(input_size, hidden_size, batch_first, mode='GRU')
+
+	def forward(self, input, hx):
+		if self.masked == True:
+			mask_ih, mask_hh = self.get_mask()
+			return self.cell(input, self.weight_ih * mask_ih, hx, self.weight_hh * mask_hh)
+
+		return self.cell(input, self.weight_ih, hx, self.weight_hh)
+
+	def cell(self, input, weight_ih, hx, weight_hh):
+		igate = F.linear(input, weight_ih, self.bias_ih)
+		hgate = F.linear(hx, weight_hh, self.bias_hh)
+
+		i_reset, i_input, i_new = igate.chunk(3, 1)
+		h_reset, h_input, h_new = hgate.chunk(3, 1)
+
+		reset_gate = torch.sigmoid(i_reset + h_reset)
+		input_gate = torch.sigmoid(i_input + h_input)
+		new_gate = torch.tanh(i_new + reset_gate * h_new)
+
+		hx = new_gate + input_gate * (hx - new_gate)
+		return hx

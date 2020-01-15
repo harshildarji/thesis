@@ -9,7 +9,7 @@ from torch.nn.parameter import Parameter
 import math
 import numpy as np
 
-def weight_prune(model, pruning_perc):
+def global_prune(model, pruning_perc):
     weights = []
     for param in model.parameters():
         if len(param.data.size()) != 1:
@@ -20,6 +20,21 @@ def weight_prune(model, pruning_perc):
     for param in model.parameters():
         if len(param.data.size()) != 1:
             pruned_inds = param.data.abs() > threshold
+            mask.append(pruned_inds.float())
+
+    return mask
+
+def weight_prune(model, pruning_perc, w_type):
+    weights = []
+    for param, data in model.named_parameters():
+        if len(data.size()) != 1 and w_type in param:
+            weights += list(data.cpu().data.abs().numpy().flatten())
+    threshold = np.percentile(np.array(weights), pruning_perc)
+
+    mask = []
+    for param, data in model.named_parameters():
+        if len(data.size()) != 1 and w_type in param:
+            pruned_inds = data.abs() > threshold
             mask.append(pruned_inds.float())
 
     return mask
@@ -62,6 +77,8 @@ class WeightBase(nn.Module):
         self.reset_parameters()
 
         self.masked = False
+        self.i2h_masked = False
+        self.h2h_masked = False
 
     def flatten_parameters(self):
         any_param = next(self.parameters()).data
@@ -93,6 +110,20 @@ class WeightBase(nn.Module):
     def get_mask(self):
         return Variable(self.in_mask), Variable(self.hid_mask)
 
+    def set_i2h_mask(self, mask):
+        self.register_buffer('mask_i2h', mask)
+        self.i2h_masked = True
+
+    def get_i2h_mask(self):
+        return Variable(self.mask_i2h)
+
+    def set_h2h_mask(self, mask):
+        self.register_buffer('mask_h2h', mask)
+        self.h2h_masked = True
+
+    def get_h2h_mask(self):
+        return Variable(self.mask_h2h)
+
     def extra_repr(self):
         s = '{input_size}, {hidden_size}'
 
@@ -106,13 +137,38 @@ class WeightBase(nn.Module):
 
         return s.format(**self.__dict__)
 
+    def forward(self, input, hx):
+        if self.masked == True:
+            mask_ih, mask_hh = self.get_mask()
+            return self.cell(input, self.weight_ih * mask_ih, hx, self.weight_hh * mask_hh)
+
+        if self.i2h_masked == True:
+            mask_i2h = self.get_i2h_mask()
+            return self.cell(input, self.weight_ih * mask_i2h, hx, self.weight_hh)
+
+        if self.h2h_masked == True:
+            mask_h2h = self.get_h2h_mask()
+            return self.cell(input, self.weight_ih, hx, self.weight_hh * mask_h2h)
+
+        return self.cell(input, self.weight_ih, hx, self.weight_hh)
+
 
 class ModuleBase(nn.Module):
     """Base class to forward weights and to set mask"""
     def set_mask(self, pruning_perc):
-        mask = weight_prune(self, pruning_perc)
+        mask = global_prune(self, pruning_perc)
         for i, m in enumerate(range(0, len(mask), 2)):
             self.recurrent_layers[i].set_mask((mask[m], mask[m+1]))
+
+    def set_i2h_mask(self, pruning_perc):
+        mask = weight_prune(self, pruning_perc, 'ih')
+        for i, m in enumerate(mask):
+            self.recurrent_layers[i].set_i2h_mask(mask[i])
+
+    def set_h2h_mask(self, pruning_perc):
+        mask = weight_prune(self, pruning_perc, 'hh')
+        for i, m in enumerate(mask):
+            self.recurrent_layers[i].set_h2h_mask(mask[i])
 
     def forward(self, input):
         batch_size = input.size(0) if self.batch_first else input.size(1)
@@ -163,15 +219,9 @@ class MaskedRNNLayer(WeightBase):
             raise ValueError("Unknown nonlinearity '{}'".format(nonlinearity))
         super(MaskedRNNLayer, self).__init__(input_size, hidden_size, batch_first, mode=nonlinearity.upper())
 
-    def forward(self, input, hx):
-        if self.masked == True:
-            mask_ih, mask_hh = self.get_mask()
-            igate = F.linear(input, self.weight_ih * mask_ih, self.bias_ih)
-            hgate = F.linear(hx, self.weight_hh * mask_hh, self.bias_hh)
-            return self.activation(igate + hgate)
-
-        igate = F.linear(input, self.weight_ih, self.bias_ih)
-        hgate = F.linear(hx, self.weight_hh, self.bias_hh)
+    def cell(self, input, weight_ih, hx, weight_hh):
+        igate = F.linear(input, weight_ih, self.bias_ih)
+        hgate = F.linear(hx, weight_hh, self.bias_hh)
         return self.activation(igate + hgate)
 
 
@@ -205,13 +255,6 @@ class MaskedGRULayer(WeightBase):
     """Individual GRU cell"""
     def __init__(self, input_size, hidden_size, batch_first):
         super(MaskedGRULayer, self).__init__(input_size, hidden_size, batch_first, mode='GRU')
-
-    def forward(self, input, hx):
-        if self.masked == True:
-            mask_ih, mask_hh = self.get_mask()
-            return self.cell(input, self.weight_ih * mask_ih, hx, self.weight_hh * mask_hh)
-
-        return self.cell(input, self.weight_ih, hx, self.weight_hh)
 
     def cell(self, input, weight_ih, hx, weight_hh):
         igate = F.linear(input, weight_ih, self.bias_ih)
@@ -259,13 +302,6 @@ class MaskedLSTMLayer(WeightBase):
     """Individual LSTM cell"""
     def __init__(self, input_size, hidden_size, batch_first):
         super(MaskedLSTMLayer, self).__init__(input_size, hidden_size, batch_first, mode='LSTM')
-
-    def forward(self, input, hx):
-        if self.masked == True:
-            mask_ih, mask_hh = self.get_mask()
-            return self.cell(input, self.weight_ih * mask_ih, hx, self.weight_hh * mask_hh)
-
-        return self.cell(input, self.weight_ih, hx, self.weight_hh)
 
     def cell(self, input, weight_ih, hx, weight_hh):
         igate = F.linear(input, weight_ih, self.bias_ih)

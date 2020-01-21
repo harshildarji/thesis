@@ -174,11 +174,11 @@ class ModuleBase(nn.Module):
         batch_size = input.size(0) if self.batch_first else input.size(1)
 
         for l, hidden_size in enumerate(self.hidden_layers):
-            if l == 0: out = input
             hx = torch.zeros(batch_size, hidden_size, dtype=input.dtype, device=input.device)
-            out = self.step(self.recurrent_layers[l], out, hx)
+            input = self.step(self.recurrent_layers[l], input, hx)
 
-        return out[:, -1, :] if self.batch_first else out[-1]
+        output = input[:, -1, :] if self.batch_first else input[-1]
+        return output
 
 
 #========== RNN-[TANH, RELU] ==========

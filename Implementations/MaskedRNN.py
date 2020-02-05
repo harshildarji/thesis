@@ -181,7 +181,7 @@ class ModuleBase(nn.Module):
         return output
 
 
-#========== RNN-[TANH, RELU] ==========
+# ========== RNN-[TANH, RELU] ==========
 class MaskedDeepRNN(ModuleBase):
     """A multi-layer RNN with TANH or RELU non-linearity"""
     def __init__(self, in_features, hidden_layers: list, batch_first=False, nonlinearity='tanh'):
@@ -225,7 +225,7 @@ class MaskedRNNLayer(WeightBase):
         return self.activation(igate + hgate)
 
 
-#========== GRU ==========
+# ========== GRU ==========
 class MaskedDeepGRU(ModuleBase):
     """A multi-layer GRU"""
     def __init__(self, in_features, hidden_layers: list, batch_first=False):
@@ -271,7 +271,7 @@ class MaskedGRULayer(WeightBase):
         return hx
 
 
-#========== LSTM ==========
+# ========== LSTM ==========
 class MaskedDeepLSTM(ModuleBase):
     """A multi-layer LSTM"""
     def __init__(self, in_features, hidden_layers: list, batch_first=False):

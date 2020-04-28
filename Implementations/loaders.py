@@ -17,11 +17,11 @@ class MakeDataset(Dataset):
 
 
 def data_loaders(batch_size):
-	train = MakeDataset(train_data)
-	test = MakeDataset(test_data)
-	train_loader = DataLoader(dataset=train, batch_size=batch_size, shuffle=True)
-	test_loader = DataLoader(dataset=test, batch_size=batch_size, shuffle=True)
-	return train_loader, test_loader
+    train = MakeDataset(train_data)
+    test = MakeDataset(test_data)
+    train_loader = DataLoader(dataset=train, batch_size=batch_size, shuffle=True)
+    test_loader = DataLoader(dataset=test, batch_size=batch_size, shuffle=True)
+    return train_loader, test_loader
 
 
 train_data = pd.read_csv('../../dataset/train_data.csv')

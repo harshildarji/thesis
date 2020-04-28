@@ -1,13 +1,13 @@
+import math
+
+import numpy as np
 import torch
 import torch.nn as nn
-from torch.nn import _VF
-from torch.nn import init
-import torch.nn.functional as F 
+import torch.nn.functional as F
 from torch.autograd import Variable
+from torch.nn import init
 from torch.nn.parameter import Parameter
- 
-import math
-import numpy as np
+
 
 def global_prune(model, pruning_perc):
     weights = []
@@ -23,6 +23,7 @@ def global_prune(model, pruning_perc):
             mask.append(pruned_inds.float())
 
     return mask
+
 
 def weight_prune(model, pruning_perc, w_type):
     weights = []
@@ -42,6 +43,7 @@ def weight_prune(model, pruning_perc, w_type):
 
 class WeightBase(nn.Module):
     """Base class for weight initialization (slightly modified version of __init__ of class nn.RNNBase)"""
+
     def __init__(self, input_size, hidden_size, batch_first, mode):
         super(WeightBase, self).__init__()
         self.input_size = input_size
@@ -155,10 +157,11 @@ class WeightBase(nn.Module):
 
 class ModuleBase(nn.Module):
     """Base class to forward weights and to set mask"""
+
     def set_mask(self, pruning_perc):
         mask = global_prune(self, pruning_perc)
         for i, m in enumerate(range(0, len(mask), 2)):
-            self.recurrent_layers[i].set_mask((mask[m], mask[m+1]))
+            self.recurrent_layers[i].set_mask((mask[m], mask[m + 1]))
 
     def set_i2h_mask(self, pruning_perc):
         mask = weight_prune(self, pruning_perc, 'ih')
@@ -184,6 +187,7 @@ class ModuleBase(nn.Module):
 # ========== RNN-[TANH, RELU] ==========
 class MaskedDeepRNN(ModuleBase):
     """A multi-layer RNN with TANH or RELU non-linearity"""
+
     def __init__(self, in_features, hidden_layers: list, batch_first=False, nonlinearity='tanh'):
         super(MaskedDeepRNN, self).__init__()
         self.hidden_layers = hidden_layers
@@ -192,7 +196,7 @@ class MaskedDeepRNN(ModuleBase):
 
         self.recurrent_layers = nn.ModuleList()
         for l, hidden_size in enumerate(hidden_layers):
-            in_size = in_features if l == 0 else hidden_layers[l-1]
+            in_size = in_features if l == 0 else hidden_layers[l - 1]
             self.recurrent_layers.append(MaskedRNNLayer(in_size, hidden_size, batch_first, nonlinearity))
 
     def step(self, layer, input, hx):
@@ -210,6 +214,7 @@ class MaskedDeepRNN(ModuleBase):
 
 class MaskedRNNLayer(WeightBase):
     """Individual RNN cell to apply TANH or RELU non-linearity to an input and a hidden state"""
+
     def __init__(self, input_size, hidden_size, batch_first, nonlinearity='tanh'):
         if nonlinearity == 'tanh':
             self.activation = torch.tanh
@@ -228,6 +233,7 @@ class MaskedRNNLayer(WeightBase):
 # ========== GRU ==========
 class MaskedDeepGRU(ModuleBase):
     """A multi-layer GRU"""
+
     def __init__(self, in_features, hidden_layers: list, batch_first=False):
         super(MaskedDeepGRU, self).__init__()
         self.hidden_layers = hidden_layers
@@ -235,7 +241,7 @@ class MaskedDeepGRU(ModuleBase):
 
         self.recurrent_layers = nn.ModuleList()
         for l, hidden_size in enumerate(hidden_layers):
-            in_size = in_features if l == 0 else hidden_layers[l-1]
+            in_size = in_features if l == 0 else hidden_layers[l - 1]
             self.recurrent_layers.append(MaskedGRULayer(in_size, hidden_size, batch_first))
 
     def step(self, layer, input, hx):
@@ -253,6 +259,7 @@ class MaskedDeepGRU(ModuleBase):
 
 class MaskedGRULayer(WeightBase):
     """Individual GRU cell"""
+
     def __init__(self, input_size, hidden_size, batch_first):
         super(MaskedGRULayer, self).__init__(input_size, hidden_size, batch_first, mode='GRU')
 
@@ -274,6 +281,7 @@ class MaskedGRULayer(WeightBase):
 # ========== LSTM ==========
 class MaskedDeepLSTM(ModuleBase):
     """A multi-layer LSTM"""
+
     def __init__(self, in_features, hidden_layers: list, batch_first=False):
         super(MaskedDeepLSTM, self).__init__()
         self.hidden_layers = hidden_layers
@@ -281,7 +289,7 @@ class MaskedDeepLSTM(ModuleBase):
 
         self.recurrent_layers = nn.ModuleList()
         for l, hidden_size in enumerate(hidden_layers):
-            in_size = in_features if l == 0 else hidden_layers[l-1]
+            in_size = in_features if l == 0 else hidden_layers[l - 1]
             self.recurrent_layers.append(MaskedLSTMLayer(in_size, hidden_size, batch_first))
 
     def step(self, layer, input, hx):
@@ -300,6 +308,7 @@ class MaskedDeepLSTM(ModuleBase):
 
 class MaskedLSTMLayer(WeightBase):
     """Individual LSTM cell"""
+
     def __init__(self, input_size, hidden_size, batch_first):
         super(MaskedLSTMLayer, self).__init__(input_size, hidden_size, batch_first, mode='LSTM')
 

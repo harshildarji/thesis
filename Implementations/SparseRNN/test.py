@@ -108,7 +108,7 @@ def test(model, test_loader, criterion, to_print):
 if __name__ == '__main__':
     print('--- Do not disturb, Machine is learning ---')
     random_structure = CachedLayeredGraph()
-    random_graph = nx.barabasi_albert_graph(2, 1)
+    random_graph = nx.barabasi_albert_graph(50, 5)
     random_structure.add_edges_from(random_graph.edges)
     random_structure.add_nodes_from(random_graph.nodes)
 

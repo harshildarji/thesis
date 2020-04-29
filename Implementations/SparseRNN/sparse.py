@@ -9,32 +9,6 @@ from torch.nn import init
 from torch.nn.parameter import Parameter
 
 
-def maskable_layers(network):
-    for child in network.children():
-        if type(child) is MaskedRecurrentLayer:
-            yield child
-        elif type(child) is nn.ModuleList:
-            for layer in maskable_layers(child):
-                yield layer
-
-
-def maskable_layers_with_name(network):
-    for name, child in network.named_children():
-        if type(child) is MaskedRecurrentLayer:
-            yield name, child
-        elif type(child) is nn.ModuleList:
-            for name, layer in maskable_layers_with_name(child):
-                yield name, layer
-
-
-def prunable_layers(network):
-    return maskable_layers(network)
-
-
-def prunable_layers_with_name(network):
-    return maskable_layers_with_name(network)
-
-
 class MaskedRecurrentLayer(nn.Module):
     def __init__(self, input_size, hidden_size, mode='TANH'):
         super(MaskedRecurrentLayer, self).__init__()
@@ -104,13 +78,6 @@ class MaskedRecurrentLayer(nn.Module):
     def get_weight_count(self):
         return self.mask.sum()
 
-    def apply_mask(self):
-        self.weight_ih.data = self.weight_ih * self.mask
-
-    def recompute_mask(self, theta: float = 0.001):
-        self.mask = torch.ones(self.weight_ih.shape, dtype=torch.bool, device=self.mask.device)
-        self.mask[torch.where(abs(self.weight_ih) < theta)] = False
-
     def extra_repr(self):
         s = '{input_size}, {hidden_size}, nonlinearity={mode}, batch_first={batch_first}'
         return s.format(**self.__dict__)
@@ -121,17 +88,7 @@ class MaskedRecurrentLayer(nn.Module):
         return self.activation(igate + hgate)
 
 
-class MaskableModule(nn.Module):
-    def apply_mask(self):
-        for layer in maskable_layers(self):
-            layer.apply_mask()
-
-    def recompute_mask(self, theta=0.0001):
-        for layer in maskable_layers(self):
-            layer.recompute_mask(theta)
-
-
-class ArbitraryRNN(MaskableModule):
+class ArbitraryRNN(nn.Module):
     def __init__(self, input_size, structure: LayeredGraph, batch_first=False, mode='tanh'):
         super(ArbitraryRNN, self).__init__()
         self.batch_first = batch_first

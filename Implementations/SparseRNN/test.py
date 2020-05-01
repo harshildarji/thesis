@@ -1,13 +1,11 @@
-import sys
-sys.path.append('../')
-
 import networkx as nx
+import pandas as pd
 import torch
 import torch.nn as nn
-from sparse import ArbitraryRNN
-from dataloaders import get_reber_loaders
 from pypaddle.sparse import LayeredGraph, CachedLayeredGraph
+from sparse import ArbitraryRNN
 from torch.autograd import Variable
+from torch.utils.data import Dataset, DataLoader
 
 MODEL = 'RNN-TANH'
 BATCH_SIZE = 16
@@ -41,6 +39,30 @@ def make_variables(strings, valid):
     seq_lens = torch.LongTensor([s[1] for s in seqs_and_lens])
     valid = torch.LongTensor(valid)
     return pad_seq(vect_seqs, seq_lens, valid)
+
+
+class MakeDataset(Dataset):
+    def __init__(self, data):
+        self.strings = list(data['string'])
+        self.valid = list(data['valid'])
+        self.len = len(self.valid)
+        self.valid_list = [0, 1]
+
+    def __getitem__(self, index):
+        return self.strings[index], self.valid[index]
+
+    def __len__(self):
+        return self.len
+
+
+def get_reber_loaders(batch_size):
+    train_data = pd.read_csv('dataset/train_data.csv')
+    test_data = pd.read_csv('dataset/test_data.csv')
+    train = MakeDataset(train_data)
+    test = MakeDataset(test_data)
+    train_loader = DataLoader(dataset=train, batch_size=batch_size, shuffle=True)
+    test_loader = DataLoader(dataset=test, batch_size=batch_size, shuffle=True)
+    return train_loader, test_loader
 
 
 class Model(nn.Module):
@@ -102,22 +124,19 @@ def test(model, test_loader, criterion, to_print):
             correct += predict.eq(target.data).cpu().sum().item()
 
         print('{} · [Testing] Loss: {:.3f}, Acc: {:.3f}'.format(to_print, test_loss, correct / total))
-    test_acc.append(correct / total)
 
 
 if __name__ == '__main__':
     print('--- Do not disturb, Machine is learning ---')
     random_structure = CachedLayeredGraph()
-    random_graph = nx.barabasi_albert_graph(50, 5)
+    random_graph = nx.barabasi_albert_graph(5, 3)
     random_structure.add_edges_from(random_graph.edges)
     random_structure.add_nodes_from(random_graph.nodes)
 
     train_loader, test_loader = get_reber_loaders(BATCH_SIZE)
 
     model = Model(INPUT_SIZE, OUTPUT_SIZE, random_structure)
-    # model.recurrent.apply_mask()
     optimizer = torch.optim.Adam(model.parameters(), lr=0.001)
     criterion = nn.CrossEntropyLoss()
 
-    test_acc = []
     train(model, EPOCHS, train_loader, test_loader, criterion, optimizer)

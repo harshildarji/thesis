@@ -5,6 +5,7 @@ import torch.nn as nn
 from prune import PruneRNN
 from torch.autograd import Variable
 from torch.utils.data import Dataset, DataLoader
+from timeit import default_timer as timer
 
 MODEL = 'RNN-TANH'
 BATCH_SIZE = 32
@@ -82,6 +83,7 @@ class Model(nn.Module):
 
 def train(model, epochs, train_loader, test_loader, criterion, optimizer):
     for epoch in range(epochs):
+        start = timer()
         model.train()
 
         train_loss = 0
@@ -104,10 +106,10 @@ def train(model, epochs, train_loader, test_loader, criterion, optimizer):
             correct += predict.eq(target.data).cpu().sum().item()
 
         to_print = 'Epoch {:2d} · [Training] Loss: {:7.3f}, Acc: {:.3f}'.format(epoch + 1, train_loss, correct / total)
-        test(model, test_loader, criterion, to_print)
+        test(model, test_loader, criterion, to_print, start)
 
 
-def test(model, test_loader, criterion, to_print):
+def test(model, test_loader, criterion, to_print, start):
     model.eval()
 
     test_loss = 0
@@ -124,7 +126,8 @@ def test(model, test_loader, criterion, to_print):
             total += target.size(0)
             correct += predict.eq(target.data).cpu().sum().item()
 
-        print('{} · [Testing] Loss: {:7.3f}, Acc: {:.3f}'.format(to_print, test_loss, correct / total))
+        end = timer()
+        print('{} · [Testing] Loss: {:7.3f}, Acc: {:.3f} · [Time] {:6.2f} s'.format(to_print, test_loss, correct / total, end - start))
 
 
 if __name__ == '__main__':
@@ -137,5 +140,4 @@ if __name__ == '__main__':
     criterion = nn.CrossEntropyLoss()
 
     model.cuda()
-    # print(model)
     train(model, EPOCHS, train_loader, test_loader, criterion, optimizer)

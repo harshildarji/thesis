@@ -1,13 +1,12 @@
-# %% [code]
+from timeit import default_timer as timer
+
 import pandas as pd
 import torch
 import torch.nn as nn
 from prune import PruneRNN
 from torch.autograd import Variable
 from torch.utils.data import Dataset, DataLoader
-from timeit import default_timer as timer
 
-MODEL = 'RNN-TANH'
 BATCH_SIZE = 32
 INPUT_SIZE = 128
 EMBEDDING_DIM = 100

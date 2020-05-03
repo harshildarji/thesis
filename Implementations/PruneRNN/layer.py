@@ -4,6 +4,7 @@ import torch
 import torch.nn as nn
 from torch.nn import Parameter
 from torch.nn import init
+from torch.autograd import Variable
 
 
 class MaskedRecurrentLayer(nn.Module):
@@ -42,16 +43,25 @@ class MaskedRecurrentLayer(nn.Module):
         self.bias_hh = Parameter(torch.randn(gate_size))
         self.reset_parameters()
 
+        self.register_buffer('mask_i2h', torch.ones((gate_size, self.input_size), dtype=torch.bool))
+        self.register_buffer('mask_h2h', torch.ones((gate_size, self.input_size), dtype=torch.bool))
+
     def reset_parameters(self):
         stdv = 1.0 / math.sqrt(self.hidden_size)
         for weight in self.parameters():
             init.uniform_(weight, -stdv, stdv)
 
+    def set_i2h_mask(self, mask):
+        self.mask_i2h = Variable(mask)
+
+    def set_h2h_mask(self, mask):
+        self.mask_h2h = Variable(mask)
+
     def forward(self, input, hx):
         if isinstance(hx, tuple):
             hx, cx = hx
-        igate = torch.mm(input, self.weight_ih.t()) + self.bias_ih
-        hgate = torch.mm(hx, self.weight_hh.t()) + self.bias_hh
+        igate = torch.mm(input, (self.weight_ih * self.mask_i2h).t()) + self.bias_ih
+        hgate = torch.mm(hx, (self.weight_hh * self.mask_h2h).t()) + self.bias_hh
 
         if self.mode == 'RNN_TANH':
             return self.__tanh(igate, hgate)

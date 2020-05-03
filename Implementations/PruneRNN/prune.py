@@ -1,3 +1,4 @@
+import numpy as np
 import torch
 import torch.nn as nn
 from layer import MaskedRecurrentLayer
@@ -46,3 +47,47 @@ class PruneRNN(nn.Module):
             outputs.append(hx.unsqueeze(in_dim))
 
         return torch.cat(outputs, dim=in_dim)
+
+    def apply_mask(self, percent=0, i2h=False, h2h=False):
+        """
+        :param percent: Amount of pruning to apply. Default '0'
+        :param i2h: If True, then Input-to-Hidden layers will be pruned. Default 'False'
+        :param h2h: If True, then Hidden-to-Hidden layers will be pruned. Default 'False'
+        :type percent: int
+        :type i2h: bool
+        :type h2h: bool
+        """
+        if not i2h and not h2h:
+            return
+
+        masks = self.__get_masks(percent, i2h, h2h)
+        for l, layer in enumerate(self.recurrent_layers):
+            if i2h:
+                layer.set_i2h_mask(masks[l][0])
+            if h2h:
+                layer.set_h2h_mask(masks[l][-1])
+
+    def __get_masks(self, percent, i2h, h2h):
+        if i2h and h2h:
+            key = ''
+        elif i2h:
+            key = 'ih'
+        elif h2h:
+            key = 'hh'
+
+        weights = []
+        for param, data in self.named_parameters():
+            if 'bias' not in param and key in param:
+                weights += list(data.cpu().data.abs().numpy().flatten())
+        threshold = np.percentile(np.array(weights), percent)
+
+        masks = {}
+        for l, layer in enumerate(self.recurrent_layers):
+            masks[l] = []
+            for param, data in layer.named_parameters():
+                if 'bias' not in param and key in param:
+                    mask = torch.ones(data.shape, dtype=torch.bool, device=data.device)
+                    mask[torch.where(abs(data) < threshold)] = False
+                    masks[l].append(mask)
+
+        return masks

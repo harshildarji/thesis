@@ -56,8 +56,8 @@ class MakeDataset(Dataset):
 
 
 def get_reber_loaders(batch_size):
-    train_data = pd.read_csv('../input/reberseq/train_data.csv')
-    test_data = pd.read_csv('../input/reberseq/test_data.csv')
+    train_data = pd.read_csv('../dataset/train_data.csv')
+    test_data = pd.read_csv('../dataset/test_data.csv')
     train = MakeDataset(train_data)
     test = MakeDataset(test_data)
     train_loader = DataLoader(dataset=train, batch_size=batch_size, shuffle=True)
@@ -134,9 +134,10 @@ if __name__ == '__main__':
 
     train_loader, test_loader = get_reber_loaders(BATCH_SIZE)
 
-    model = Model(INPUT_SIZE, OUTPUT_SIZE, HIDDEN_LAYERS, mode='LSTM')
+    model = Model(INPUT_SIZE, OUTPUT_SIZE, HIDDEN_LAYERS, mode='RNN_TANH')
     optimizer = torch.optim.Adam(model.parameters(), lr=0.001)
     criterion = nn.CrossEntropyLoss()
 
     model.cuda()
+    # model.recurrent.apply_mask(50, i2h=True, h2h=True)
     train(model, EPOCHS, train_loader, test_loader, criterion, optimizer)

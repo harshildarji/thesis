@@ -161,7 +161,7 @@ if __name__ == '__main__':
     for mode in MODES:
         print('--- Mode: {} ---'.format(mode))
 
-        f = open(RESULT_FILE_PATH + '{}.csv'.format(mode), 'a')
+        f = open(RESULT_FILE_PATH + '{}.csv'.format(mode.lower()), 'a')
         f.write('mode,prune,epoch,train_loss,train_acc,test_loss,test_acc,time\n')
 
         model, optimizer, criterion = get_model(mode)
@@ -173,21 +173,21 @@ if __name__ == '__main__':
             model, optimizer, criterion = get_model(mode, load_saved=True)
             model.recurrent.apply_mask(percent, i2h=True, h2h=True)
             test(model, test_loader, criterion, '{}_PRUNE'.format(mode), percent, -1, 0.0, 0.0, timer())
-            train(model, 2, train_loader, test_loader, criterion, optimizer, '{}_PRUNE'.format(mode), percent)
+            train(model, 10, train_loader, test_loader, criterion, optimizer, '{}_PRUNE'.format(mode), percent)
 
         for percent in PERCENT:
             print()
             model, optimizer, criterion = get_model(mode, load_saved=True)
             model.recurrent.apply_mask(percent, i2h=True)
             test(model, test_loader, criterion, '{}_PRUNE_I2H'.format(mode), percent, -1, 0.0, 0.0, timer())
-            train(model, 2, train_loader, test_loader, criterion, optimizer, '{}_PRUNE_I2H'.format(mode), percent)
+            train(model, 10, train_loader, test_loader, criterion, optimizer, '{}_PRUNE_I2H'.format(mode), percent)
 
         for percent in PERCENT:
             print()
             model, optimizer, criterion = get_model(mode, load_saved=True)
             model.recurrent.apply_mask(percent, h2h=True)
             test(model, test_loader, criterion, '{}_PRUNE_H2H'.format(mode), percent, -1, 0.0, 0.0, timer())
-            train(model, 2, train_loader, test_loader, criterion, optimizer, '{}_PRUNE_H2H'.format(mode), percent)
+            train(model, 10, train_loader, test_loader, criterion, optimizer, '{}_PRUNE_H2H'.format(mode), percent)
 
         f.close()
         print()

@@ -14,15 +14,16 @@ BATCH_SIZE = 32
 INPUT_SIZE = 128
 EMBEDDING_DIM = 100
 OUTPUT_SIZE = 2
-EPOCHS = 5
+EPOCHS = 50
 HIDDEN_LAYERS = [50, 50, 50]
+PERCENT = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
 MODES = ['RNN_TANH', 'RNN_RELU', 'GRU', 'LSTM']
-FILE = 'results/prune_results.csv'
+RESULT_FILE_PATH = 'results/prune/'
 STATE_DICT_PATH = 'state_dicts/prune/'
 
 
 def create_variable(tensor):
-    return Variable(tensor)
+    return Variable(tensor.cuda())
 
 
 def str2ascii(string):
@@ -86,7 +87,7 @@ class Model(nn.Module):
         return self.out(recurrent_output)
 
 
-def train(model, epochs, train_loader, test_loader, criterion, optimizer, mode):
+def train(model, epochs, train_loader, test_loader, criterion, optimizer, mode, prune):
     for epoch in range(epochs):
         start = timer()
         model.train()
@@ -111,10 +112,10 @@ def train(model, epochs, train_loader, test_loader, criterion, optimizer, mode):
             correct += predict.eq(target.data).cpu().sum().item()
 
         train_acc = correct / total
-        test(model, test_loader, criterion, start, mode, epoch, train_loss, train_acc)
+        test(model, test_loader, criterion, mode, prune, epoch, train_loss, train_acc, start)
 
 
-def test(model, test_loader, criterion, start, mode, epoch, train_loss, train_acc):
+def test(model, test_loader, criterion, mode, prune, epoch, train_loss, train_acc, start):
     model.eval()
 
     test_loss = 0
@@ -136,30 +137,57 @@ def test(model, test_loader, criterion, start, mode, epoch, train_loss, train_ac
         test_acc = correct / total
         time = end - start
 
-        print('[{}] · Epoch {:2d} · [Training] Loss: {:7.3f}, Acc: {:.3f} · [Testing] Loss: {:7.3f}, Acc: {:.3f} · [Time] {:6.2f} s'.format(mode, epoch + 1, train_loss, train_acc, test_loss, test_acc, time))
+        print('[{}] Prune {:2d}% · Epoch {:2d} · [Training] Loss: {:7.3f}, Acc: {:.3f} · [Testing] Loss: {:7.3f}, Acc: {:.3f} · [Time] {:6.2f} s'.format(mode, prune, epoch + 1, train_loss, train_acc, test_loss, test_acc, time))
 
-        f = open(FILE, 'a')
-        f.write('{},{},{},{},{},{},{}\n'.format(mode, epoch + 1, train_loss, train_acc, test_loss, test_acc, time))
-        f.close()
+        f.write('{},{},{},{},{},{},{},{}\n'.format(mode.lower(), prune, epoch + 1, train_loss, train_acc, test_loss, test_acc, time))
 
 
-def get_model(mode):
+def get_model(mode, load_saved=False):
     model = Model(INPUT_SIZE, OUTPUT_SIZE, HIDDEN_LAYERS, mode=mode)
+
+    if load_saved:
+        param_dict = torch.load(STATE_DICT_PATH + '{}.pt'.format(mode.lower()))
+        model.load_state_dict(param_dict)
+
     optimizer = torch.optim.Adam(model.parameters(), lr=0.001)
     criterion = nn.CrossEntropyLoss()
+    model.cuda()
     return model, optimizer, criterion
 
 
 if __name__ == '__main__':
-    f = open(FILE, 'w')
-    f.write('mode,epoch,train_loss,train_acc,test_loss,test_acc,time\n')
-    f.close()
-
     train_loader, test_loader = get_reber_loaders(BATCH_SIZE)
 
     for mode in MODES:
         print('--- Mode: {} ---'.format(mode))
+
+        f = open(RESULT_FILE_PATH + '{}.csv'.format(mode), 'a')
+        f.write('mode,prune,epoch,train_loss,train_acc,test_loss,test_acc,time\n')
+
         model, optimizer, criterion = get_model(mode)
-        train(model, EPOCHS, train_loader, test_loader, criterion, optimizer, mode)
+        train(model, EPOCHS, train_loader, test_loader, criterion, optimizer, mode, 0)
         torch.save(model.state_dict(), STATE_DICT_PATH + '{}.pt'.format(mode.lower()))
+
+        for percent in PERCENT:
+            print()
+            model, optimizer, criterion = get_model(mode, load_saved=True)
+            model.recurrent.apply_mask(percent, i2h=True, h2h=True)
+            test(model, test_loader, criterion, '{}_PRUNE'.format(mode), percent, -1, 0.0, 0.0, timer())
+            train(model, 2, train_loader, test_loader, criterion, optimizer, '{}_PRUNE'.format(mode), percent)
+
+        for percent in PERCENT:
+            print()
+            model, optimizer, criterion = get_model(mode, load_saved=True)
+            model.recurrent.apply_mask(percent, i2h=True)
+            test(model, test_loader, criterion, '{}_PRUNE_I2H'.format(mode), percent, -1, 0.0, 0.0, timer())
+            train(model, 2, train_loader, test_loader, criterion, optimizer, '{}_PRUNE_I2H'.format(mode), percent)
+
+        for percent in PERCENT:
+            print()
+            model, optimizer, criterion = get_model(mode, load_saved=True)
+            model.recurrent.apply_mask(percent, h2h=True)
+            test(model, test_loader, criterion, '{}_PRUNE_H2H'.format(mode), percent, -1, 0.0, 0.0, timer())
+            train(model, 2, train_loader, test_loader, criterion, optimizer, '{}_PRUNE_H2H'.format(mode), percent)
+
+        f.close()
         print()

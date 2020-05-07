@@ -1,18 +1,25 @@
+import sys
+from timeit import default_timer as timer
+
 import networkx as nx
 import pandas as pd
 import torch
 import torch.nn as nn
-from pypaddle.sparse import LayeredGraph, CachedLayeredGraph
-from sparse import ArbitraryRNN
 from torch.autograd import Variable
 from torch.utils.data import Dataset, DataLoader
+from pypaddle.sparse import LayeredGraph, CachedLayeredGraph
 
-MODEL = 'RNN-TANH'
-BATCH_SIZE = 16
+sys.path.append('../')
+from sparse import ArbitraryStructureRNN
+
+BATCH_SIZE = 32
 INPUT_SIZE = 128
 EMBEDDING_DIM = 100
 OUTPUT_SIZE = 2
 EPOCHS = 5
+MODES = ['RNN_TANH', 'RNN_RELU', 'GRU', 'LSTM']
+RESULT_FILE_PATH = 'results/structure/'
+STATE_DICT_PATH = 'state_dicts/structure/'
 
 
 def create_variable(tensor):
@@ -30,7 +37,7 @@ def pad_seq(vect_seqs, seq_lens, valid):
     for index, (seq, seq_len) in enumerate(zip(vect_seqs, seq_lens)):
         seq_tensor[index, :seq_len] = torch.LongTensor(seq)
 
-    return seq_tensor, valid
+    return create_variable(seq_tensor), create_variable(valid)
 
 
 def make_variables(strings, valid):
@@ -56,8 +63,8 @@ class MakeDataset(Dataset):
 
 
 def get_reber_loaders(batch_size):
-    train_data = pd.read_csv('dataset/train_data.csv')
-    test_data = pd.read_csv('dataset/test_data.csv')
+    train_data = pd.read_csv('../dataset/train_data.csv')
+    test_data = pd.read_csv('../dataset/test_data.csv')
     train = MakeDataset(train_data)
     test = MakeDataset(test_data)
     train_loader = DataLoader(dataset=train, batch_size=batch_size, shuffle=True)
@@ -66,11 +73,11 @@ def get_reber_loaders(batch_size):
 
 
 class Model(nn.Module):
-    def __init__(self, input_size, output_size, structure: LayeredGraph):
+    def __init__(self, input_size, output_size, structure: LayeredGraph, mode):
         super(Model, self).__init__()
 
         self.embedding = nn.Embedding(num_embeddings=input_size, embedding_dim=structure.first_layer_size)
-        self.recurrent = ArbitraryRNN(input_size=structure.first_layer_size, structure=structure)
+        self.recurrent = ArbitraryStructureRNN(input_size=structure.first_layer_size, structure=structure, mode=mode)
         self.out = nn.Linear(structure.last_layer_size, output_size)
 
     def forward(self, input):
@@ -80,8 +87,9 @@ class Model(nn.Module):
         return self.out(recurrent_output)
 
 
-def train(model, epochs, train_loader, test_loader, criterion, optimizer):
+def train(model, epochs, train_loader, test_loader, criterion, optimizer, mode):
     for epoch in range(epochs):
+        start = timer()
         model.train()
 
         train_loss = 0
@@ -92,9 +100,10 @@ def train(model, epochs, train_loader, test_loader, criterion, optimizer):
             input, target = make_variables(string, valid)
             output = model(input)
 
+            optimizer.zero_grad()
             loss = criterion(output, target)
             loss.backward()
-            model.zero_grad()
+            nn.utils.clip_grad_norm_(model.parameters(), 5)
             optimizer.step()
 
             train_loss += loss.data.item()
@@ -102,11 +111,11 @@ def train(model, epochs, train_loader, test_loader, criterion, optimizer):
             total += target.size(0)
             correct += predict.eq(target.data).cpu().sum().item()
 
-        to_print = 'Epoch {} · [Training] Loss: {:.3f}, Acc: {:.3f}'.format(epoch + 1, train_loss, correct / total)
-        test(model, test_loader, criterion, to_print)
+        train_acc = correct / total
+        test(model, test_loader, criterion, mode, epoch, train_loss, train_acc, start)
 
 
-def test(model, test_loader, criterion, to_print):
+def test(model, test_loader, criterion, mode, epoch, train_loss, train_acc, start):
     model.eval()
 
     test_loss = 0
@@ -123,7 +132,12 @@ def test(model, test_loader, criterion, to_print):
             total += target.size(0)
             correct += predict.eq(target.data).cpu().sum().item()
 
-        print('{} · [Testing] Loss: {:.3f}, Acc: {:.3f}'.format(to_print, test_loss, correct / total))
+        end = timer()
+
+        test_acc = correct / total
+        time = end - start
+
+        print('[{}] · Epoch {:2d} · [Training] Loss: {:7.3f}, Acc: {:.3f} · [Testing] Loss: {:7.3f}, Acc: {:.3f} · [Time] {:6.2f} s'.format(mode, epoch + 1, train_loss, train_acc, test_loss, test_acc, time))
 
 
 if __name__ == '__main__':
@@ -135,8 +149,8 @@ if __name__ == '__main__':
 
     train_loader, test_loader = get_reber_loaders(BATCH_SIZE)
 
-    model = Model(INPUT_SIZE, OUTPUT_SIZE, random_structure)
+    model = Model(INPUT_SIZE, OUTPUT_SIZE, random_structure, mode='RNN_TANH')
     optimizer = torch.optim.Adam(model.parameters(), lr=0.001)
     criterion = nn.CrossEntropyLoss()
 
-    train(model, EPOCHS, train_loader, test_loader, criterion, optimizer)
+    train(model, EPOCHS, train_loader, test_loader, criterion, optimizer, 'RNN_TANH')

@@ -5,9 +5,9 @@ import networkx as nx
 import pandas as pd
 import torch
 import torch.nn as nn
+from pypaddle.sparse import LayeredGraph, CachedLayeredGraph
 from torch.autograd import Variable
 from torch.utils.data import Dataset, DataLoader
-from pypaddle.sparse import LayeredGraph, CachedLayeredGraph
 
 sys.path.append('../')
 from sparse import ArbitraryStructureRNN

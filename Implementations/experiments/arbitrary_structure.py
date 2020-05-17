@@ -1,3 +1,4 @@
+import statistics
 import sys
 from timeit import default_timer as timer
 
@@ -17,7 +18,7 @@ INPUT_SIZE = 128
 EMBEDDING_DIM = 100
 OUTPUT_SIZE = 2
 EPOCHS = 5
-MODES = ['RNN_TANH', 'RNN_RELU', 'GRU', 'LSTM']
+MODES = ['RNN_TANH']
 RESULT_FILE_PATH = 'results/structure/'
 STATE_DICT_PATH = 'state_dicts/structure/'
 
@@ -112,7 +113,9 @@ def train(model, epochs, train_loader, test_loader, criterion, optimizer, mode):
             correct += predict.eq(target.data).cpu().sum().item()
 
         train_acc = correct / total
-        test(model, test_loader, criterion, mode, epoch, train_loss, train_acc, start)
+        test_acc, test_loss = test(model, test_loader, criterion, mode, epoch, train_loss, train_acc, start)
+
+    return test_acc, test_loss
 
 
 def test(model, test_loader, criterion, mode, epoch, train_loss, train_acc, start):
@@ -138,19 +141,100 @@ def test(model, test_loader, criterion, mode, epoch, train_loss, train_acc, star
         time = end - start
 
         print('[{}] · Epoch {:2d} · [Training] Loss: {:7.3f}, Acc: {:.3f} · [Testing] Loss: {:7.3f}, Acc: {:.3f} · [Time] {:6.2f} s'.format(mode, epoch + 1, train_loss, train_acc, test_loss, test_acc, time))
+        return test_acc, test_loss
 
 
-if __name__ == '__main__':
-    print('--- Do not disturb, Machine is learning ---')
+def get_graph_properties(graph):
+    num_nodes = len(graph.nodes)
+    num_edges = len(graph.edges)
+
+    eccentricity = nx.eccentricity(graph)
+    eccentricity_mean = statistics.mean(eccentricity.values())
+    eccentricity_var = statistics.variance(eccentricity.values())
+    eccentricity_std = statistics.stdev(eccentricity.values())
+
+    diameter = nx.diameter(graph, eccentricity)
+    density = num_edges / (num_nodes * (num_nodes - 1))
+
+    degree = nx.degree_centrality(graph)
+    degree_mean = statistics.mean(degree.values())
+    degree_var = statistics.variance(degree.values())
+    degree_std = statistics.stdev(degree.values())
+
+    closeness = nx.closeness_centrality(graph)
+    closeness_mean = statistics.mean(closeness.values())
+    closeness_var = statistics.variance(closeness.values())
+    closeness_std = statistics.stdev(closeness.values())
+
+    nodes_betweenness = nx.betweenness_centrality(graph)
+    nodes_betweenness_mean = statistics.mean(nodes_betweenness.values())
+    nodes_betweenness_var = statistics.variance(nodes_betweenness.values())
+    nodes_betweenness_std = statistics.stdev(nodes_betweenness.values())
+
+    edge_betweenness = nx.edge_betweenness_centrality(graph)
+    edge_betweenness_mean = statistics.mean(edge_betweenness.values())
+    edge_betweenness_var = statistics.variance(edge_betweenness.values())
+    edge_betweenness_std = statistics.stdev(edge_betweenness.values())
+
+    return num_nodes, num_edges, diameter, density, \
+           eccentricity_mean, eccentricity_var, eccentricity_std, \
+           degree_mean, degree_var, degree_std, \
+           closeness_mean, closeness_var, closeness_std, \
+           nodes_betweenness_mean, nodes_betweenness_var, nodes_betweenness_std, \
+           edge_betweenness_mean, edge_betweenness_var, edge_betweenness_std
+
+
+def main(random_graph, graph):
+    run_start = timer()
+
     random_structure = CachedLayeredGraph()
-    random_graph = nx.barabasi_albert_graph(5, 3)
     random_structure.add_edges_from(random_graph.edges)
     random_structure.add_nodes_from(random_graph.nodes)
 
+    num_layers = len(random_structure.layers)
+    num_nodes, num_edges, diameter, density, \
+    eccentricity_mean, eccentricity_var, eccentricity_std, \
+    degree_mean, degree_var, degree_std, \
+    closeness_mean, closeness_var, closeness_std, \
+    nodes_betweenness_mean, nodes_betweenness_var, nodes_betweenness_std, \
+    edge_betweenness_mean, edge_betweenness_var, edge_betweenness_std = get_graph_properties(random_graph)
+
     train_loader, test_loader = get_reber_loaders(BATCH_SIZE)
 
-    model = Model(INPUT_SIZE, OUTPUT_SIZE, random_structure, mode='RNN_TANH')
+    model = Model(INPUT_SIZE, OUTPUT_SIZE, random_structure, mode=mode)
     optimizer = torch.optim.Adam(model.parameters(), lr=0.001)
     criterion = nn.CrossEntropyLoss()
 
-    train(model, EPOCHS, train_loader, test_loader, criterion, optimizer, 'RNN_TANH')
+    test_acc, test_loss = train(model, EPOCHS, train_loader, test_loader, criterion, optimizer, mode)
+
+    run_end = timer()
+    total_run = run_end - run_start
+    f = open(RESULT_FILE_PATH + '{}.csv'.format(mode.lower()), 'a')
+    f.write('{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{}\n'.format(mode, graph, num_layers, num_nodes, num_edges, diameter, density,
+                                                                                                  eccentricity_mean, eccentricity_var, eccentricity_std,
+                                                                                                  degree_mean, degree_var, degree_std,
+                                                                                                  closeness_mean, closeness_var, closeness_std,
+                                                                                                  nodes_betweenness_mean, nodes_betweenness_var, nodes_betweenness_std,
+                                                                                                  edge_betweenness_mean, edge_betweenness_var, edge_betweenness_std,
+                                                                                                  test_acc, test_loss, total_run))
+    f.close()
+
+
+if __name__ == '__main__':
+    for mode in MODES:
+        print('--- Mode: {} ---'.format(mode))
+
+        f = open(RESULT_FILE_PATH + '{}.csv'.format(mode.lower()), 'w')
+        f.write('mode,graph,layers,nodes,edges,diameter,density,eccentricity_mean,eccentricity_var,eccentricity_std,'
+                'degree_mean,degree_var,degree_std,closeness_mean,closeness_var,closeness_std,'
+                'nodes_betweenness_mean,nodes_betweenness_var,nodes_betweenness_std,'
+                'edge_betweenness_mean,edge_betweenness_var,edge_betweenness_std,test_acc,test_loss,time\n')
+        f.close()
+
+        for _ in range(1):
+            random_graph = nx.barabasi_albert_graph(10, 3)
+            main(random_graph, 'barabasi_albert')
+
+        for _ in range(1):
+            random_graph = nx.watts_strogatz_graph(10, 3, .5)
+            main(random_graph, 'watts_strogatz')

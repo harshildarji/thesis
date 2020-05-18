@@ -17,7 +17,7 @@ BATCH_SIZE = 32
 INPUT_SIZE = 128
 EMBEDDING_DIM = 100
 OUTPUT_SIZE = 2
-EPOCHS = 5
+EPOCHS = 10
 MODES = ['RNN_TANH']
 RESULT_FILE_PATH = 'results/structure/'
 STATE_DICT_PATH = 'state_dicts/structure/'
@@ -191,6 +191,7 @@ def main(random_graph, graph):
     random_structure.add_edges_from(random_graph.edges)
     random_structure.add_nodes_from(random_graph.nodes)
 
+    source_nodes, sink_nodes = random_structure.first_layer_size, random_structure.last_layer_size
     num_layers = len(random_structure.layers)
     num_nodes, num_edges, diameter, density, \
     eccentricity_mean, eccentricity_var, eccentricity_std, \
@@ -210,13 +211,14 @@ def main(random_graph, graph):
     run_end = timer()
     total_run = run_end - run_start
     f = open(RESULT_FILE_PATH + '{}.csv'.format(mode.lower()), 'a')
-    f.write('{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{}\n'.format(mode, graph, num_layers, num_nodes, num_edges, diameter, density,
-                                                                                                  eccentricity_mean, eccentricity_var, eccentricity_std,
-                                                                                                  degree_mean, degree_var, degree_std,
-                                                                                                  closeness_mean, closeness_var, closeness_std,
-                                                                                                  nodes_betweenness_mean, nodes_betweenness_var, nodes_betweenness_std,
-                                                                                                  edge_betweenness_mean, edge_betweenness_var, edge_betweenness_std,
-                                                                                                  test_acc, test_loss, total_run))
+    f.write('{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{}\n'.format(mode, graph, num_layers, num_nodes, num_edges,
+                                                                                                        source_nodes, sink_nodes, diameter, density,
+                                                                                                        eccentricity_mean, eccentricity_var, eccentricity_std,
+                                                                                                        degree_mean, degree_var, degree_std,
+                                                                                                        closeness_mean, closeness_var, closeness_std,
+                                                                                                        nodes_betweenness_mean, nodes_betweenness_var, nodes_betweenness_std,
+                                                                                                        edge_betweenness_mean, edge_betweenness_var, edge_betweenness_std,
+                                                                                                        test_acc, test_loss, total_run))
     f.close()
 
 
@@ -225,16 +227,16 @@ if __name__ == '__main__':
         print('--- Mode: {} ---'.format(mode))
 
         f = open(RESULT_FILE_PATH + '{}.csv'.format(mode.lower()), 'w')
-        f.write('mode,graph,layers,nodes,edges,diameter,density,eccentricity_mean,eccentricity_var,eccentricity_std,'
+        f.write('mode,graph,layers,nodes,edges,source_nodes,sink_nodes,diameter,density,eccentricity_mean,eccentricity_var,eccentricity_std,'
                 'degree_mean,degree_var,degree_std,closeness_mean,closeness_var,closeness_std,'
                 'nodes_betweenness_mean,nodes_betweenness_var,nodes_betweenness_std,'
                 'edge_betweenness_mean,edge_betweenness_var,edge_betweenness_std,test_acc,test_loss,time\n')
         f.close()
 
         for _ in range(1):
-            random_graph = nx.barabasi_albert_graph(10, 3)
+            random_graph = nx.barabasi_albert_graph(10, 5)
             main(random_graph, 'barabasi_albert')
 
         for _ in range(1):
-            random_graph = nx.watts_strogatz_graph(10, 3, .5)
+            random_graph = nx.watts_strogatz_graph(10, 5, .5)
             main(random_graph, 'watts_strogatz')

@@ -2,6 +2,7 @@ import random
 import statistics
 import sys
 from timeit import default_timer as timer
+import argparse
 
 import networkx as nx
 import pandas as pd
@@ -19,13 +20,12 @@ INPUT_SIZE = 128
 EMBEDDING_DIM = 100
 OUTPUT_SIZE = 2
 EPOCHS = 10
-MODES = ['RNN_TANH']
 RESULT_FILE_PATH = 'results/structure/'
 STATE_DICT_PATH = 'state_dicts/structure/'
 
 
 def create_variable(tensor):
-    return Variable(tensor.cuda())
+    return Variable(tensor.to(device))
 
 
 def str2ascii(string):
@@ -179,7 +179,7 @@ def get_graph_properties(graph):
            edge_betweenness_mean, edge_betweenness_var, edge_betweenness_std
 
 
-def main(random_graph, graph, mode):
+def main(random_graph, graph_name, graph_nr, mode):
     run_start = timer()
 
     random_structure = CachedLayeredGraph()
@@ -202,15 +202,15 @@ def main(random_graph, graph, mode):
     optimizer = torch.optim.Adam(model.parameters(), lr=0.001)
     criterion = nn.CrossEntropyLoss()
 
-    model.cuda()
+    model.to(device)
     test_acc, test_loss = train(model, EPOCHS, train_loader, test_loader, criterion, optimizer, mode)
 
     run_end = timer()
     total_run = run_end - run_start
 
-    print('[{}] · {} · [Testing] Loss: {:7.3f}, Acc: {:.3f} · [Time] {:6.2f} s'.format(mode, graph, test_loss, test_acc, total_run))
+    print('[{}] · {}_{} · [Testing] Loss: {:7.3f}, Acc: {:.3f} · [Time] {:6.2f} s'.format(mode, graph_name, graph_nr, test_loss, test_acc, total_run))
     f = open(RESULT_FILE_PATH + '{}.csv'.format(mode.lower()), 'a')
-    f.write('{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{}\n'.format(mode, graph[:-2], graph[-1], num_layers, num_nodes, num_edges,
+    f.write('{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{}\n'.format(mode, graph_name, graph_nr, num_layers, num_nodes, num_edges,
                                                                                                            source_nodes, sink_nodes, diameter, density,
                                                                                                            eccentricity_mean, eccentricity_var, eccentricity_std,
                                                                                                            degree_mean, degree_var, degree_std,
@@ -219,26 +219,33 @@ def main(random_graph, graph, mode):
                                                                                                            edge_betweenness_mean, edge_betweenness_var, edge_betweenness_std,
                                                                                                            test_acc, test_loss, total_run))
     f.close()
-    torch.save(model.state_dict(), STATE_DICT_PATH + '{}/{}.pt'.format(mode, graph))
+    torch.save(model.state_dict(), STATE_DICT_PATH + '{}/{}_{}.pt'.format(mode, graph_name, graph_nr))
 
 
 if __name__ == '__main__':
-    for mode in MODES:
-        print('--- Mode: {} ---'.format(mode))
+    parser = argparse.ArgumentParser(description='Arbitrary Structure Experiment')
+    parser.add_argument('--mode', default='RNN_TANH', type=str, help='Available modes: RNN_TANH, RNN_RELU, GRU, LSTM')
+    parser.add_argument('--gpu_device', default=0, type=int, help='GPU device index')
+    args = parser.parse_args()
 
-        f = open(RESULT_FILE_PATH + '{}.csv'.format(mode.lower()), 'w')
-        f.write('mode,graph,graph_nr,layers,nodes,edges,source_nodes,sink_nodes,diameter,density,eccentricity_mean,eccentricity_var,eccentricity_std,'
-                'degree_mean,degree_var,degree_std,closeness_mean,closeness_var,closeness_std,'
-                'nodes_betweenness_mean,nodes_betweenness_var,nodes_betweenness_std,'
-                'edge_betweenness_mean,edge_betweenness_var,edge_betweenness_std,test_acc,test_loss,time\n')
-        f.close()
+    mode = args.mode
+    device = torch.device(f'cuda:{args.gpu_device}' if torch.cuda.is_available() else 'cpu')
 
-        for g in range(5):
-            n = random.randrange(10, 51)
-            random_graph = nx.barabasi_albert_graph(n, n // 10)
-            main(random_graph, 'barabasi_albert_{}'.format(g), mode)
+    print('--- Mode: {} ---'.format(mode))
 
-        for g in range(5):
-            n = random.randrange(10, 51)
-            random_graph = nx.connected_watts_strogatz_graph(n, n // 5, 1, 10)
-            main(random_graph, 'watts_strogatz_{}'.format(g), mode)
+    f = open(RESULT_FILE_PATH + '{}.csv'.format(mode.lower()), 'w')
+    f.write('mode,graph,graph_nr,layers,nodes,edges,source_nodes,sink_nodes,diameter,density,eccentricity_mean,eccentricity_var,eccentricity_std,'
+            'degree_mean,degree_var,degree_std,closeness_mean,closeness_var,closeness_std,'
+            'nodes_betweenness_mean,nodes_betweenness_var,nodes_betweenness_std,'
+            'edge_betweenness_mean,edge_betweenness_var,edge_betweenness_std,test_acc,test_loss,time\n')
+    f.close()
+
+    for g in range(5):
+        n = random.randrange(10, 51)
+        random_graph = nx.barabasi_albert_graph(n, n // 10)
+        main(random_graph, 'barabasi_albert', g, mode)
+
+    for g in range(5):
+        n = random.randrange(10, 51)
+        random_graph = nx.connected_watts_strogatz_graph(n, n // 5, 1, 10)
+        main(random_graph, 'watts_strogatz', g, mode)

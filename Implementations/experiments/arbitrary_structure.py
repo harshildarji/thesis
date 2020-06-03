@@ -19,7 +19,7 @@ BATCH_SIZE = 128
 INPUT_SIZE = 128
 EMBEDDING_DIM = 100
 OUTPUT_SIZE = 2
-EPOCHS = 10
+EPOCHS = 20
 RESULT_FILE_PATH = 'results/structure/'
 STATE_DICT_PATH = 'state_dicts/structure/'
 

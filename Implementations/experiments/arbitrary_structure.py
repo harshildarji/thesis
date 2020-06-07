@@ -19,7 +19,7 @@ BATCH_SIZE = 128
 INPUT_SIZE = 128
 EMBEDDING_DIM = 100
 OUTPUT_SIZE = 2
-EPOCHS = 20
+EPOCHS = 15
 RESULT_FILE_PATH = 'results/structure/'
 STATE_DICT_PATH = 'state_dicts/structure/'
 
@@ -240,12 +240,12 @@ if __name__ == '__main__':
             'edge_betweenness_mean,edge_betweenness_var,edge_betweenness_std,test_acc,test_loss,time\n')
     f.close()
 
-    for g in range(5):
+    for g in range(100):
         n = random.randrange(10, 51)
         random_graph = nx.barabasi_albert_graph(n, n // 10)
         main(random_graph, 'barabasi_albert', g, mode)
 
-    for g in range(5):
+    for g in range(100):
         n = random.randrange(10, 51)
         random_graph = nx.connected_watts_strogatz_graph(n, n // 5, 1, 10)
         main(random_graph, 'watts_strogatz', g, mode)

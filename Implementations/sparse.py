@@ -102,6 +102,15 @@ class ArbitraryStructureRNN(nn.Module):
         self.mode = mode.upper()
         self.batch_first = batch_first
 
+        if self.mode == 'RNN_TANH' or self.mode == 'RNN_RELU':
+            gates = 1
+        elif self.mode == 'GRU':
+            gates = 3
+        elif self.mode == 'LSTM':
+            gates = 4
+        else:
+            raise ValueError("Unrecognized mode: '{}'".format(mode))
+
         self._structure = structure
         assert structure.num_layers > 0
 
@@ -117,6 +126,7 @@ class ArbitraryStructureRNN(nn.Module):
                 for target_idx, target_vertex in enumerate(structure.get_vertices(layer_idx)):
                     if structure.has_edge(source_vertex, target_vertex):
                         mask[target_idx][source_idx] = 1
+            mask = np.repeat(mask, gates, 0)
             layer.set_i2h_mask(mask)
 
         skip_layers = []
@@ -134,6 +144,7 @@ class ArbitraryStructureRNN(nn.Module):
                         for target_idx, target_vertex in enumerate(structure.get_vertices(target_layer)):
                             if structure.has_edge(source_vertex, target_vertex):
                                 mask[target_idx][source_idx] = 1
+                    mask = np.repeat(mask, gates, 0)
                     skip_layer.set_i2h_mask(mask)
 
                     skip_layers.append(skip_layer)

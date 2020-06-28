@@ -10,7 +10,6 @@ from torch.nn import init
 class MaskedRecurrentLayer(nn.Module):
     """
     Base class for layer initialization.
-    (slightly modified version of __init__ of class nn.RNNBase)
 
     Args:
         input_size: The number of expected features in the input
@@ -44,7 +43,7 @@ class MaskedRecurrentLayer(nn.Module):
         self.reset_parameters()
 
         self.register_buffer('mask_i2h', torch.ones((gate_size, self.input_size), dtype=torch.bool))
-        self.register_buffer('mask_h2h', torch.ones((gate_size, self.input_size), dtype=torch.bool))
+        self.register_buffer('mask_h2h', torch.ones((gate_size, self.hidden_size), dtype=torch.bool))
 
     def reset_parameters(self):
         stdv = 1.0 / math.sqrt(self.hidden_size)

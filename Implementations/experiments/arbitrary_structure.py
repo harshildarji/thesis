@@ -1,8 +1,8 @@
+import argparse
 import random
 import statistics
 import sys
 from timeit import default_timer as timer
-import argparse
 
 import networkx as nx
 import pandas as pd

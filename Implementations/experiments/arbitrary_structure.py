@@ -22,6 +22,7 @@ OUTPUT_SIZE = 2
 EPOCHS = 15
 RESULT_FILE_PATH = 'results/structure/'
 STATE_DICT_PATH = 'state_dicts/structure/'
+GRAPH_STORE_PATH = 'graphs/'
 
 
 def create_variable(tensor):
@@ -151,6 +152,8 @@ def get_graph_properties(graph):
     diameter = nx.diameter(graph, eccentricity)
     density = num_edges / (num_nodes * (num_nodes - 1))
 
+    average_shortest_path_length = nx.average_shortest_path_length(graph)
+
     degree = nx.degree_centrality(graph)
     degree_mean = statistics.mean(degree.values())
     degree_var = statistics.variance(degree.values())
@@ -171,7 +174,7 @@ def get_graph_properties(graph):
     edge_betweenness_var = statistics.variance(edge_betweenness.values())
     edge_betweenness_std = statistics.stdev(edge_betweenness.values())
 
-    return num_nodes, num_edges, diameter, density, \
+    return num_nodes, num_edges, diameter, density, average_shortest_path_length, \
            eccentricity_mean, eccentricity_var, eccentricity_std, \
            degree_mean, degree_var, degree_std, \
            closeness_mean, closeness_var, closeness_std, \
@@ -187,7 +190,7 @@ def main(random_graph, graph_name, graph_nr, mode):
     random_structure.add_nodes_from(random_graph.nodes)
 
     num_layers = len(random_structure.layers)
-    num_nodes, num_edges, diameter, density, \
+    num_nodes, num_edges, diameter, density, average_shortest_path_length, \
     eccentricity_mean, eccentricity_var, eccentricity_std, \
     degree_mean, degree_var, degree_std, \
     closeness_mean, closeness_var, closeness_std, \
@@ -210,8 +213,8 @@ def main(random_graph, graph_name, graph_nr, mode):
 
     print('[{}] · {}_{} · [Testing] Loss: {:7.3f}, Acc: {:.3f} · [Time] {:6.2f} s'.format(mode, graph_name, graph_nr, test_loss, test_acc, total_run))
     f = open(RESULT_FILE_PATH + '{}.csv'.format(mode.lower()), 'a')
-    f.write('{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{}\n'.format(mode, graph_name, graph_nr, num_layers, num_nodes, num_edges,
-                                                                                                           source_nodes, sink_nodes, diameter, density,
+    f.write('{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{}\n'.format(mode, graph_name, graph_nr, num_layers, num_nodes, num_edges,
+                                                                                                           source_nodes, sink_nodes, diameter, density, average_shortest_path_length,
                                                                                                            eccentricity_mean, eccentricity_var, eccentricity_std,
                                                                                                            degree_mean, degree_var, degree_std,
                                                                                                            closeness_mean, closeness_var, closeness_std,
@@ -220,6 +223,7 @@ def main(random_graph, graph_name, graph_nr, mode):
                                                                                                            test_acc, test_loss, total_run))
     f.close()
     torch.save(model.state_dict(), STATE_DICT_PATH + '{}/{}_{}.pt'.format(mode, graph_name, graph_nr))
+    nx.readwrite.write_gpickle(random_graph, GRAPH_STORE_PATH + '{}/{}_{}.gpickle'.format(mode, graph_name, graph_nr))
 
 
 if __name__ == '__main__':
@@ -234,7 +238,8 @@ if __name__ == '__main__':
     print('--- Mode: {} ---'.format(mode))
 
     f = open(RESULT_FILE_PATH + '{}.csv'.format(mode.lower()), 'w')
-    f.write('mode,graph,graph_nr,layers,nodes,edges,source_nodes,sink_nodes,diameter,density,eccentricity_mean,eccentricity_var,eccentricity_std,'
+    f.write('mode,graph,graph_nr,layers,nodes,edges,source_nodes,sink_nodes,diameter,density,average_shortest_path_length,'
+            'eccentricity_mean,eccentricity_var,eccentricity_std,'
             'degree_mean,degree_var,degree_std,closeness_mean,closeness_var,closeness_std,'
             'nodes_betweenness_mean,nodes_betweenness_var,nodes_betweenness_std,'
             'edge_betweenness_mean,edge_betweenness_var,edge_betweenness_std,test_acc,test_loss,time\n')

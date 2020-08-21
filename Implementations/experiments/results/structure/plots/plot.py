@@ -26,7 +26,7 @@ for mode in modes:
 
     # --- plot jointplots for test_acc and a few graph properties ---
 
-    cols = ['layers', 'nodes', 'edges', 'source_nodes', 'diameter', 'eccentricity_var', 'degree_var', 'closeness_var', 'nodes_betweenness_var', 'edge_betweenness_var']
+    cols = ['layers', 'nodes', 'edges', 'source_nodes', 'diameter', 'density', 'average_shortest_path_length', 'eccentricity_var', 'degree_var', 'closeness_var', 'nodes_betweenness_var', 'edge_betweenness_var']
     for c in cols:
         pearson, p = scipy.stats.pearsonr(file['test_acc'], (file[c]))
         sns.jointplot(x=file['test_acc'], y=file[c], kind='reg', height=10, xlim=(file['test_acc'].min()-.04, 1.0)).plot_joint(sns.kdeplot, zorder=0, n_levels=5, alpha=.2, color='k', shade=False)

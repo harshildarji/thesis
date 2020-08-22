@@ -214,13 +214,13 @@ def main(random_graph, graph_name, graph_nr, mode):
     print('[{}] · {}_{} · [Testing] Loss: {:7.3f}, Acc: {:.3f} · [Time] {:6.2f} s'.format(mode, graph_name, graph_nr, test_loss, test_acc, total_run))
     f = open(RESULT_FILE_PATH + '{}.csv'.format(mode.lower()), 'a')
     f.write('{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{}\n'.format(mode, graph_name, graph_nr, num_layers, num_nodes, num_edges,
-                                                                                                           source_nodes, sink_nodes, diameter, density, average_shortest_path_length,
-                                                                                                           eccentricity_mean, eccentricity_var, eccentricity_std,
-                                                                                                           degree_mean, degree_var, degree_std,
-                                                                                                           closeness_mean, closeness_var, closeness_std,
-                                                                                                           nodes_betweenness_mean, nodes_betweenness_var, nodes_betweenness_std,
-                                                                                                           edge_betweenness_mean, edge_betweenness_var, edge_betweenness_std,
-                                                                                                           test_acc, test_loss, total_run))
+                                                                                                              source_nodes, sink_nodes, diameter, density, average_shortest_path_length,
+                                                                                                              eccentricity_mean, eccentricity_var, eccentricity_std,
+                                                                                                              degree_mean, degree_var, degree_std,
+                                                                                                              closeness_mean, closeness_var, closeness_std,
+                                                                                                              nodes_betweenness_mean, nodes_betweenness_var, nodes_betweenness_std,
+                                                                                                              edge_betweenness_mean, edge_betweenness_var, edge_betweenness_std,
+                                                                                                              test_acc, test_loss, total_run))
     f.close()
     torch.save(model.state_dict(), STATE_DICT_PATH + '{}/{}_{}.pt'.format(mode, graph_name, graph_nr))
     nx.readwrite.write_gpickle(random_graph, GRAPH_STORE_PATH + '{}/{}_{}.gpickle'.format(mode, graph_name, graph_nr))

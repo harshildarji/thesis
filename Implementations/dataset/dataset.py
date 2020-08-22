@@ -62,6 +62,8 @@ if __name__ == '__main__':
     for i in ax.patches:
         ax.text(i.get_x() + .22, i.get_height() - 400, str(i.get_height()), fontsize=12)
 
+    plt.title('Validity and number of strings in train and test dataset')
+    plt.xlabel('Validity of strings')
     plt.ylabel('Number of strings')
     plt.legend()
     plt.savefig('./plots/string_counts.png')

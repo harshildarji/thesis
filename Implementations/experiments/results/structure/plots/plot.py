@@ -26,7 +26,7 @@ for mode in modes:
 
     # --- plot jointplots for test_acc and a few graph properties ---
 
-    plt.rcParams.update({'font.size': 14})
+    plt.rcParams.update({'font.size': 15})
 
     cols = ['layers', 'nodes', 'edges', 'source_nodes', 'diameter', 'density', 'average_shortest_path_length', 'eccentricity_var', 'degree_var', 'closeness_var', 'nodes_betweenness_var', 'edge_betweenness_var']
     for c in cols:

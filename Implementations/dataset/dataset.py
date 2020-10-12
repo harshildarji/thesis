@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 warnings.filterwarnings('ignore')
-plt.rcParams.update({'font.size': 14})
+plt.rcParams.update({'font.size': 15})
 plt.rcParams.update({'figure.figsize': (15, 8)})
 
 

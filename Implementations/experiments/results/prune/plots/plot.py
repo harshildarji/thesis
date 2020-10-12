@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import pandas as pd
 
-plt.rcParams.update({'font.size': 14})
+plt.rcParams.update({'font.size': 15})
 plt.rcParams.update({'figure.figsize': (15, 8)})
 plt.rcParams.update({'legend.loc': 'best', 'legend.framealpha': 0.5})
 

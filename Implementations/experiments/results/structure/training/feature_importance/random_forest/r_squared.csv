@@ -1,0 +1,4 @@
+feature_type,RNN_ReLU,GRU
+without_node_edge,-0.05,0.78
+only_node_edge,0.71,0.75
+only_var,0.06,0.76

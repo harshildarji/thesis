@@ -1,0 +1,5 @@
+feature,RNN_ReLU,GRU
+nodes,0.23,0.11
+edges,0.29,0.12
+source_nodes,0.29,0.71
+sink_nodes,0.19,0.06

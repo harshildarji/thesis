@@ -1,0 +1,6 @@
+feature,RNN_ReLU,GRU
+eccentricity_var,0.21,0.17
+degree_var,0.17,0.15
+closeness_var,0.22,0.36
+nodes_betweenness_var,0.24,0.25
+edge_betweenness_var,0.16,0.08

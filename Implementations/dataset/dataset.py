@@ -18,7 +18,7 @@ def plot_str_len(data, data_type='entire'):
 
     ax.bar(labels, values)
     ax.plot(data, color='k', marker='|', alpha=.3)
-    plt.xticks(range(10, 55), rotation=90, size=10)
+    plt.xticks(range(10, 55), rotation=90, size=12)
 
     for i in ax.patches:
         height = 10 if data_type == 'test' else 30
@@ -36,7 +36,7 @@ def plot_chars(chars, char_count, data_type='entire'):
     ax.tick_params(axis='x', which='major', pad=1.5)
 
     ax.bar(chars, char_count, color=colors)
-    plt.xticks(size=10)
+    plt.xticks(size=12)
 
     for i in ax.patches:
         ax.text(i.get_x(), i.get_height() + 500, str(i.get_height()), fontsize=10)

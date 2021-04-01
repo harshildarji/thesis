@@ -26,7 +26,7 @@ for mode in modes:
 
     # --- plot jointplots for test_acc and a few graph properties ---
 
-    plt.rcParams.update({'font.size': 15})
+    plt.rcParams.update({'font.size': 24})
 
     cols = ['layers', 'nodes', 'edges', 'source_nodes', 'diameter', 'density', 'average_shortest_path_length', 'eccentricity_var', 'degree_var', 'closeness_var', 'nodes_betweenness_var', 'edge_betweenness_var']
     for c in cols:
@@ -45,6 +45,8 @@ for mode in modes:
     plt.close()
 
     # --- plot catplot for different graph properties and graph type to compare test_acc? ---
+
+    plt.rcParams.update({'font.size': 15})
 
     Y = ['test_acc', 'layers', 'nodes', 'edges', 'density']
     for i, y in enumerate(Y):

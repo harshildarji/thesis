@@ -1,0 +1,12 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n}{masks} \PYG{o}{=} \PYG{p}{\PYGZob{}\PYGZcb{}}
+\PYG{k}{for} \PYG{n}{l}\PYG{p}{,} \PYG{n}{layer} \PYG{o+ow}{in} \PYG{n+nb}{enumerate}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{recurrent\PYGZus{}layers}\PYG{p}{):}
+    \PYG{n}{masks}\PYG{p}{[}\PYG{n}{l}\PYG{p}{]} \PYG{o}{=} \PYG{p}{[]}
+    \PYG{k}{for} \PYG{n}{param}\PYG{p}{,} \PYG{n}{data} \PYG{o+ow}{in} \PYG{n}{layer}\PYG{o}{.}\PYG{n}{named\PYGZus{}parameters}\PYG{p}{():}
+        \PYG{k}{if} \PYG{l+s+s1}{\PYGZsq{}bias\PYGZsq{}} \PYG{o+ow}{not} \PYG{o+ow}{in} \PYG{n}{param} \PYG{o+ow}{and} \PYG{n}{key} \PYG{o+ow}{in} \PYG{n}{param}\PYG{p}{:}
+            \PYG{n}{mask} \PYG{o}{=} \PYG{n}{torch}\PYG{o}{.}\PYG{n}{ones}\PYG{p}{(}\PYG{n}{data}\PYG{o}{.}\PYG{n}{shape}\PYG{p}{,}
+                              \PYG{n}{dtype}\PYG{o}{=}\PYG{n}{torch}\PYG{o}{.}\PYG{n}{bool}\PYG{p}{,}
+                              \PYG{n}{device}\PYG{o}{=}\PYG{n}{data}\PYG{o}{.}\PYG{n}{device}\PYG{p}{)}
+            \PYG{n}{mask}\PYG{p}{[}\PYG{n}{torch}\PYG{o}{.}\PYG{n}{where}\PYG{p}{(}\PYG{n+nb}{abs}\PYG{p}{(}\PYG{n}{data}\PYG{p}{)} \PYG{o}{\PYGZlt{}} \PYG{n}{threshold}\PYG{p}{)]} \PYG{o}{=} \PYG{k+kc}{False}
+            \PYG{n}{masks}\PYG{p}{[}\PYG{n}{l}\PYG{p}{]}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n}{mask}\PYG{p}{)}
+\end{Verbatim}

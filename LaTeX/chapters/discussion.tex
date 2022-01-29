@@ -1,0 +1,37 @@
+\chapter{Discussion}\label{chap:discussion}
+
+In this section, we discuss our findings from each experiment. Beginning from base model performance, we review the results of Sparse RNNs.
+
+\section{Base model performance}
+
+For our experiment purpose, we developed custom recurrent models using PyTorch, such that we can easily modify the weights based on our requirements. Each of our recurrent models, i.e., RNN with Tanh nonlinearity, RNN with ReLU nonlinearity, LSTM, and GRU, performs consistently with over 90\% accuracy after training for only 50 epochs, as shown in section \ref{section:base_perf}.
+
+We used the same models to perform pruning experiments, a technique to generate sparsity in recurrent networks.
+
+\section{Pruning recurrent networks}
+
+This experiment helped answer the first three pruning-related research questions given in section \ref{section:research_questions}. 
+
+Our pruning experiment was divided into three separate sub-experiments: pruning input-to-hidden and hidden-to-hidden weights simultaneously, pruning only input-to-hidden weights and pruning only hidden-to-hidden weights. For each sub-experiment, we also find the number of epochs required to regain the original performance.
+
+While pruning both types of weights simultaneously, we found we can safely prune 80\% of RNN\_Tanh, 70\% of RNN\_ReLU, 60\% of LSTM, and 80\% of GRU. Afterward, we retrained these pruned models to find that for each RNN variant, we require only one epoch to regain the original performance, while these models never recover after pruning 100\% of weights.
+
+While pruning only input-to-hidden weights, we found we can safely prune 70\% of RNN\_Tanh, 70\% of RNN\_ReLU, 70\% of LSTM, and 80\% of GRU. Afterward, we retrained these pruned models to find that for each RNN variant, we mostly require only one epoch to regain the original performance and just two epochs in the case of RNN\_Tanh with 80\% pruning. These models never recover after pruning 100\% of the weights.
+
+While pruning only hidden-to-hidden weights, we found we can safely prune 80\% of RNN\_Tanh, 70\% of RNN\_ReLU, 90\% of LSTM, and 90\% of GRU. Afterward, we retrained these pruned models to find that for each RNN variant, we require only one epoch to regain the original performance. RNN\_Tanh and RNN\_ReLU models never recover after pruning 100\% of the weights, while LSTM and GRU still regain the original performance even with 100\% pruning of hidden-to-hidden weights.
+
+\section{Randomly structured recurrent networks}
+
+This experiment helped answer the remaining two research questions given in section \ref{section:research_questions}.
+
+The resulting Pearson correlation values from training randomly structured recurrent networks help identify important graph and recurrent network properties for each RNN variant.
+
+Based on this correlation, we found closeness\_var, nodes\_betweenness\_var and the number of nodes to be essential properties for randomly structured RNN\_Tanh. For randomly structured RNN\_ReLU, the essential properties are the number of nodes, the number of edges, the number of source nodes, and nodes\_betweenness\_var.
+
+In the case of randomly structured LSTM, we found six essential properties, i.e., the number of nodes, the number of edges, the number of source nodes, closeness\_var, nodes\_betweenness\_var, and edge\_betweenness\_var. Similarly, we found six essential properties for randomly structured GRU, namely, the number of nodes, the number of edges, the number of source nodes, degree\_var, closeness\_var, and nodes\_betweenness\_var.
+
+Next, we trained three regressor algorithms to find if we can use graph properties of a base random graph for performance prediction based on how well our data fit a model. Based on the results, we found that RNN\_Tanh has below 0.5 R-squared value for each regressor, meaning our data is a weak fit to all three regression models.
+
+In the case of RNN\_ReLU,  we have a 0.61 R-squared value with Random Forest regressor, meaning our data is slightly moderate fit to this particular regressor. For LSTM, our model is again slightly moderate fit to AdaBoost regressor with ~0.60 R-squared value.
+
+GRU has the best R-squared value of 0.81 with Random Forest regressor, indicating our data from randomly structured GRU is a strong fit to the Random Forest regressor model.

@@ -1,0 +1,2332 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.3.22)  29 JAN 2022 15:48
+entering extended mode
+ \write18 enabled.
+ %&-line parsing enabled.
+**thesis.tex
+(./thesis.tex
+LaTeX2e <2020-02-02> patch level 2
+L3 programming layer <2020-02-14>
+(/usr/share/texlive/texmf-dist/tex/latex/koma-script/scrbook.cls
+Document Class: scrbook 2020/01/24 v3.29 KOMA-Script document class (book)
+(/usr/share/texlive/texmf-dist/tex/latex/koma-script/scrkbase.sty
+Package: scrkbase 2020/01/24 v3.29 KOMA-Script package (KOMA-Script-dependent b
+asics and keyval usage)
+
+(/usr/share/texlive/texmf-dist/tex/latex/koma-script/scrbase.sty
+Package: scrbase 2020/01/24 v3.29 KOMA-Script package (KOMA-Script-independent 
+basics and keyval usage)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+(/usr/share/texlive/texmf-dist/tex/latex/koma-script/scrlfile.sty
+Package: scrlfile 2020/01/24 v3.29 KOMA-Script package (loading files)
+)))
+(/usr/share/texlive/texmf-dist/tex/latex/koma-script/tocbasic.sty
+Package: tocbasic 2020/01/24 v3.29 KOMA-Script package (handling toc-files)
+\scr@dte@tocline@numberwidth=\skip47
+\scr@dte@tocline@numbox=\box45
+)
+Package tocbasic Info: omitting babel extension for `toc'
+(tocbasic)             because of feature `nobabel' available
+(tocbasic)             for `toc' on input line 137.
+Class scrbook Info: You've used standard option `oneside'.
+(scrbook)           This is correct!
+(scrbook)           Internally I'm using `twoside=false'.
+(scrbook)           If you'd like to set the option with \KOMAoptions,
+(scrbook)           you'd have to use `twoside=false' there
+(scrbook)           instead of `oneside', too.
+Class scrbook Info: File `scrsize12pt.clo' used to setup font sizes on input li
+ne 2424.
+
+(/usr/share/texlive/texmf-dist/tex/latex/koma-script/scrsize12pt.clo
+File: scrsize12pt.clo 2020/01/24 v3.29 KOMA-Script font size class option (12pt
+)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/koma-script/typearea.sty
+Package: typearea 2020/01/24 v3.29 KOMA-Script package (type area)
+\ta@bcor=\skip48
+\ta@div=\count167
+Package typearea Info: You've used standard option `oneside'.
+(typearea)             This is correct!
+(typearea)             Internally I'm using `twoside=false'.
+(typearea)             If you'd like to set the option with \KOMAoptions,
+(typearea)             you'd have to use `twoside=false' there
+(typearea)             instead of `oneside', too.
+\ta@hblk=\skip49
+\ta@vblk=\skip50
+\ta@temp=\skip51
+\footheight=\skip52
+Package typearea Info: These are the values describing the layout:
+(typearea)             DIV  = 12
+(typearea)             BCOR = 0.0pt
+(typearea)             \paperwidth      = 597.50793pt
+(typearea)              \textwidth      = 448.13095pt
+(typearea)              DIV departure   = -6%
+(typearea)              \evensidemargin = 2.4185pt
+(typearea)              \oddsidemargin  = 2.4185pt
+(typearea)             \paperheight     = 845.04694pt
+(typearea)              \textheight     = 635.5pt
+(typearea)              \topmargin      = -41.72441pt
+(typearea)              \headheight     = 18.125pt
+(typearea)              \headsep        = 21.75pt
+(typearea)              \topskip        = 12.0pt
+(typearea)              \footskip       = 50.75pt
+(typearea)              \baselineskip   = 14.5pt
+(typearea)              on input line 1719.
+)
+\c@part=\count168
+\c@chapter=\count169
+\c@section=\count170
+\c@subsection=\count171
+\c@subsubsection=\count172
+\c@paragraph=\count173
+\c@subparagraph=\count174
+\scr@dte@chapter@maxnumwidth=\skip53
+Class scrbook Info: using compatibility default `afterindent=bysign'
+(scrbook)           for `\chapter on input line 5545.
+\scr@dte@section@maxnumwidth=\skip54
+Class scrbook Info: using compatibility default `runin=bysign'
+(scrbook)           for `\section on input line 5555.
+Class scrbook Info: using compatibility default `afterindent=bysign'
+(scrbook)           for `\section on input line 5555.
+\scr@dte@part@maxnumwidth=\skip55
+Class scrbook Info: using compatibility default `afterindent=true'
+(scrbook)           for `\part on input line 5564.
+\scr@dte@subsection@maxnumwidth=\skip56
+Class scrbook Info: using compatibility default `runin=bysign'
+(scrbook)           for `\subsection on input line 5574.
+Class scrbook Info: using compatibility default `afterindent=bysign'
+(scrbook)           for `\subsection on input line 5574.
+\scr@dte@subsubsection@maxnumwidth=\skip57
+Class scrbook Info: using compatibility default `runin=bysign'
+(scrbook)           for `\subsubsection on input line 5584.
+Class scrbook Info: using compatibility default `afterindent=bysign'
+(scrbook)           for `\subsubsection on input line 5584.
+\scr@dte@paragraph@maxnumwidth=\skip58
+Class scrbook Info: using compatibility default `runin=bysign'
+(scrbook)           for `\paragraph on input line 5594.
+Class scrbook Info: using compatibility default `afterindent=bysign'
+(scrbook)           for `\paragraph on input line 5594.
+\scr@dte@subparagraph@maxnumwidth=\skip59
+Class scrbook Info: using compatibility default `runin=bysign'
+(scrbook)           for `\subparagraph on input line 5604.
+Class scrbook Info: using compatibility default `afterindent=bysign'
+(scrbook)           for `\subparagraph on input line 5604.
+\abovecaptionskip=\skip60
+\belowcaptionskip=\skip61
+\c@pti@nb@sid@b@x=\box46
+Package tocbasic Info: omitting babel extension for `lof'
+(tocbasic)             because of feature `nobabel' available
+(tocbasic)             for `lof' on input line 6846.
+\scr@dte@figure@maxnumwidth=\skip62
+\c@figure=\count175
+Package tocbasic Info: omitting babel extension for `lot'
+(tocbasic)             because of feature `nobabel' available
+(tocbasic)             for `lot' on input line 6867.
+\scr@dte@table@maxnumwidth=\skip63
+\c@table=\count176
+Class scrbook Info: Redefining `\numberline' on input line 7040.
+\bibindent=\dimen134
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2019/11/30 v1.2a Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2019/11/30 v1.4a Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 105.
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen135
+\Gin@req@width=\dimen136
+)
+(/usr/share/texlive/texmf-dist/tex/latex/setspace/setspace.sty
+Package: setspace 2011/12/19 v6.7a set line spacing
+)
+(/usr/share/texlive/texmf-dist/tex/latex/wrapfig/wrapfig.sty
+\wrapoverhang=\dimen137
+\WF@size=\dimen138
+\c@WF@wrappedlines=\count177
+\WF@box=\box47
+\WF@everypar=\toks15
+Package: wrapfig 2003/01/31  v 3.6
+)
+(/usr/share/texlive/texmf-dist/tex/latex/caption/subcaption.sty
+Package: subcaption 2020/01/22 v1.3d Sub-captions (AR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2020/01/03 v3.4h Customizing captions (AR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2020/01/03 v1.8h caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 61.
+\captionmargin=\dimen139
+\captionmargin@=\dimen140
+\captionwidth=\dimen141
+\caption@tempdima=\dimen142
+\caption@indent=\dimen143
+\caption@parindent=\dimen144
+\caption@hangindent=\dimen145
+Package caption Info: KOMA-Script document class detected.
+)
+Package caption Info: KOMA-Script document class.
+\c@caption@flags=\count178
+\c@continuedfloat=\count179
+Package caption Info: wrapfig package is loaded.
+)
+\c@subfigure=\count180
+\c@subtable=\count181
+)
+(/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count182
+\float@exts=\toks16
+\float@box=\box48
+\@float@everytoks=\toks17
+\@floatcapt=\box49
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2020/01/20 v2.17e AMS math features
+\@mathmargin=\skip64
+
+For additional information on amsmath, use the `?' option.
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01 AMS text
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks18
+\ex@=\dimen146
+))
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen147
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 2016/03/08 v2.02 operator names
+)
+\inf@bad=\count183
+LaTeX Info: Redefining \frac on input line 227.
+\uproot@=\count184
+\leftroot@=\count185
+LaTeX Info: Redefining \overline on input line 389.
+\classnum@=\count186
+\DOTSCASE@=\count187
+LaTeX Info: Redefining \ldots on input line 486.
+LaTeX Info: Redefining \dots on input line 489.
+LaTeX Info: Redefining \cdots on input line 610.
+\Mathstrutbox@=\box50
+\strutbox@=\box51
+\big@size=\dimen148
+LaTeX Font Info:    Redeclaring font encoding OML on input line 733.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 734.
+\macc@depth=\count188
+\c@MaxMatrixCols=\count189
+\dotsspace@=\muskip16
+\c@parentequation=\count190
+\dspbrk@lvl=\count191
+\tag@help=\toks19
+\row@=\count192
+\column@=\count193
+\maxfields@=\count194
+\andhelp@=\toks20
+\eqnshift@=\dimen149
+\alignsep@=\dimen150
+\tagshift@=\dimen151
+\tagwidth@=\dimen152
+\totwidth@=\dimen153
+\lineht@=\dimen154
+\@envbody=\toks21
+\multlinegap=\skip65
+\multlinetaggap=\skip66
+\mathdisplay@stack=\toks22
+LaTeX Info: Redefining \[ on input line 2859.
+LaTeX Info: Redefining \] on input line 2860.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/mathtools/mathtools.sty
+Package: mathtools 2020/01/17 v1.23 mathematical typesetting tools
+
+(/usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty
+Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count195
+\calc@Bcount=\count196
+\calc@Adimen=\dimen155
+\calc@Bdimen=\dimen156
+\calc@Askip=\skip67
+\calc@Bskip=\skip68
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count197
+\calc@Cskip=\skip69
+)
+(/usr/share/texlive/texmf-dist/tex/latex/mathtools/mhsetup.sty
+Package: mhsetup 2017/03/31 v1.3 programming setup (MH)
+)
+LaTeX Info: Thecontrolsequence`\('isalreadyrobust on input line 129.
+LaTeX Info: Thecontrolsequence`\)'isalreadyrobust on input line 129.
+LaTeX Info: Thecontrolsequence`\['isalreadyrobust on input line 129.
+LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 129.
+\g_MT_multlinerow_int=\count198
+\l_MT_multwidth_dim=\dimen157
+\origjot=\skip70
+\l_MT_shortvdotswithinadjustabove_dim=\dimen158
+\l_MT_shortvdotswithinadjustbelow_dim=\dimen159
+\l_MT_above_intertext_sep=\dimen160
+\l_MT_below_intertext_sep=\dimen161
+\l_MT_above_shortintertext_sep=\dimen162
+\l_MT_below_shortintertext_sep=\dimen163
+)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/afterpage.sty
+Package: afterpage 2014/10/28 v1.08 After-Page Package (DPC)
+\AP@output=\toks23
+\AP@partial=\box52
+\AP@footins=\box53
+)
+(/usr/share/texlive/texmf-dist/tex/latex/algorithm2e/algorithm2e.sty
+Package: algorithm2e 2017/07/18 v5.2 algorithms environments
+\c@AlgoLine=\count199
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
+)
+\algocf@hangindent=\skip71
+
+(/usr/share/texlive/texmf-dist/tex/latex/ifoddpage/ifoddpage.sty
+Package: ifoddpage 2016/04/23 v1.1 Conditionals for odd/even page detection
+\c@checkoddpage=\count266
+)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/xspace.sty
+Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/relsize/relsize.sty
+Package: relsize 2013/03/29 ver 4.1
+)
+\skiptotal=\skip72
+\skiplinenumber=\skip73
+\skiprule=\skip74
+\skiphlne=\skip75
+\skiptext=\skip76
+\skiplength=\skip77
+\algomargin=\skip78
+\skipalgocfslide=\skip79
+\algowidth=\dimen164
+\inoutsize=\dimen165
+\inoutindent=\dimen166
+\interspacetitleruled=\dimen167
+\interspacealgoruled=\dimen168
+\interspacetitleboxruled=\dimen169
+\algocf@ruledwidth=\skip80
+\algocf@inoutbox=\box54
+\algocf@inputbox=\box55
+\AlCapSkip=\skip81
+\AlCapHSkip=\skip82
+\algoskipindent=\skip83
+\algocf@nlbox=\box56
+\algocf@hangingbox=\box57
+\algocf@untilbox=\box58
+\algocf@skipuntil=\skip84
+\algocf@capbox=\box59
+\algocf@lcaptionbox=\skip85
+\algoheightruledefault=\skip86
+\algoheightrule=\skip87
+\algotitleheightruledefault=\skip88
+\algotitleheightrule=\skip89
+\c@algocfline=\count267
+\c@algocfproc=\count268
+\c@algocf=\count269
+\algocf@algoframe=\box60
+\algocf@algobox=\box61
+)
+(/usr/share/texlive/texmf-dist/tex/latex/booktabs/booktabs.sty
+Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
+\heavyrulewidth=\dimen170
+\lightrulewidth=\dimen171
+\cmidrulewidth=\dimen172
+\belowrulesep=\dimen173
+\belowbottomsep=\dimen174
+\aboverulesep=\dimen175
+\abovetopsep=\dimen176
+\cmidrulesep=\dimen177
+\cmidrulekern=\dimen178
+\defaultaddspace=\dimen179
+\@cmidla=\count270
+\@cmidlb=\count271
+\@aboverulesep=\dimen180
+\@belowrulesep=\dimen181
+\@thisruleclass=\count272
+\@lastruleclass=\count273
+\@thisrulewidth=\dimen182
+)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/multicol.sty
+Package: multicol 2019/12/09 v1.8y multicolumn formatting (FMi)
+\c@tracingmulticols=\count274
+\mult@box=\box62
+\multicol@leftmargin=\dimen183
+\c@unbalance=\count275
+\c@collectmore=\count276
+\doublecol@number=\count277
+\multicoltolerance=\count278
+\multicolpretolerance=\count279
+\full@width=\dimen184
+\page@free=\dimen185
+\premulticols=\dimen186
+\postmulticols=\dimen187
+\multicolsep=\skip90
+\multicolbaselineskip=\skip91
+\partial@page=\box63
+\last@line=\box64
+\maxbalancingoverflow=\dimen188
+\mult@rightbox=\box65
+\mult@grightbox=\box66
+\mult@gfirstbox=\box67
+\mult@firstbox=\box68
+\@tempa=\box69
+\@tempa=\box70
+\@tempa=\box71
+\@tempa=\box72
+\@tempa=\box73
+\@tempa=\box74
+\@tempa=\box75
+\@tempa=\box76
+\@tempa=\box77
+\@tempa=\box78
+\@tempa=\box79
+\@tempa=\box80
+\@tempa=\box81
+\@tempa=\box82
+\@tempa=\box83
+\@tempa=\box84
+\@tempa=\box85
+\@tempa=\box86
+\@tempa=\box87
+\@tempa=\box88
+\@tempa=\box89
+\@tempa=\box90
+\@tempa=\box91
+\@tempa=\box92
+\@tempa=\box93
+\@tempa=\box94
+\@tempa=\box95
+\@tempa=\box96
+\@tempa=\box97
+\@tempa=\box98
+\@tempa=\box99
+\@tempa=\box100
+\@tempa=\box101
+\@tempa=\box102
+\@tempa=\box103
+\@tempa=\box104
+\@tempa=\box105
+\c@minrows=\count280
+\c@columnbadness=\count281
+\c@finalcolumnbadness=\count282
+\last@try=\dimen189
+\multicolovershoot=\dimen190
+\multicolundershoot=\dimen191
+\mult@nat@firstbox=\box106
+\colbreak@box=\box107
+\mc@col@check@num=\count283
+)
+(/usr/share/texlive/texmf-dist/tex/latex/multirow/multirow.sty
+Package: multirow 2019/05/31 v2.5 Span multiple rows of a table
+\multirow@colwidth=\skip92
+\multirow@cntb=\count284
+\multirow@dima=\skip93
+\bigstrutjot=\dimen192
+)
+(/usr/share/texlive/texmf-dist/tex/latex/koma-script/scrlayer-scrpage.sty
+Package: scrlayer-scrpage 2020/01/24 v3.29 KOMA-Script package (end user interf
+ace for scrlayer)
+
+(/usr/share/texlive/texmf-dist/tex/latex/koma-script/scrlayer.sty
+Package: scrlayer 2020/01/24 v3.29 KOMA-Script package (defining layers and pag
+e styles)
+Package scrlayer Info: Using already defined \footheight
+(scrlayer)             hoping, that this is a length and
+(scrlayer)             not only a macro on input line 109.
+Package scrlayer Info: patching LaTeX kernel macro \pagestyle on input line 210
+6.
+)
+Package scrlayer-scrpage Info: Makeing stand-alone element `pagehead' from
+(scrlayer-scrpage)             alias to `pageheadfoot' on input line 1244.
+Package scrlayer-scrpage Info: deactivating warning for font element
+(scrlayer-scrpage)             `pagefoot' on input line 1271.
+)
+Package scrlayer-scrpage Info: auto-selection of `pagestyleset=KOMA-Script'.
+
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
+Package: hyperref 2020/01/14 v7.00d Hypertext links for LaTeX
+
+(/usr/share/texlive/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
+Package: ltxcmds 2019/12/15 v1.24 LaTeX kernel commands for general use (HO)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/iftex/iftex.sty
+Package: iftex 2019/11/07 v1.0c TeX engine tests
+)
+(/usr/share/texlive/texmf-dist/tex/latex/pdftexcmds/pdftexcmds.sty
+Package: pdftexcmds 2019/11/24 v0.31 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+(/usr/share/texlive/texmf-dist/tex/generic/infwarerr/infwarerr.sty
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+(/usr/share/texlive/texmf-dist/tex/generic/kvsetkeys/kvsetkeys.sty
+Package: kvsetkeys 2019/12/15 v1.18 Key value parser (HO)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pdfescape/pdfescape.sty
+Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/hycolor/hycolor.sty
+Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/letltxmacro/letltxmacro.sty
+Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/auxhook/auxhook.sty
+Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/kvoptions/kvoptions.sty
+Package: kvoptions 2019/11/29 v3.13 Key value format for package options (HO)
+)
+\@linkdim=\dimen193
+\Hy@linkcounter=\count285
+\Hy@pagecounter=\count286
+
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def
+File: pd1enc.def 2020/01/14 v7.00d Hyperref: PDFDocEncoding definition (HO)
+Now handling font encoding PD1 ...
+... no UTF-8 mapping file for font encoding PD1
+)
+(/usr/share/texlive/texmf-dist/tex/generic/intcalc/intcalc.sty
+Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/etexcmds/etexcmds.sty
+Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
+)
+\Hy@SavedSpaceFactor=\count287
+\pdfmajorversion=\count288
+Package hyperref Info: Hyper figures OFF on input line 4547.
+Package hyperref Info: Link nesting OFF on input line 4552.
+Package hyperref Info: Hyper index ON on input line 4555.
+Package hyperref Info: Plain pages OFF on input line 4562.
+Package hyperref Info: Backreferencing OFF on input line 4567.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4800.
+\c@Hy@tempcnt=\count289
+
+(/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip17
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 5159.
+\XeTeXLinkMargin=\dimen194
+
+(/usr/share/texlive/texmf-dist/tex/generic/bitset/bitset.sty
+Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
+Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
+)
+))
+\Fld@menulength=\count290
+\Field@Width=\dimen195
+\Fld@charsize=\dimen196
+Package hyperref Info: Hyper figures OFF on input line 6430.
+Package hyperref Info: Link nesting OFF on input line 6435.
+Package hyperref Info: Hyper index ON on input line 6438.
+Package hyperref Info: backreferencing OFF on input line 6445.
+Package hyperref Info: Link coloring OFF on input line 6450.
+Package hyperref Info: Link coloring with OCG OFF on input line 6455.
+Package hyperref Info: PDF/A mode OFF on input line 6460.
+LaTeX Info: Redefining \ref on input line 6500.
+LaTeX Info: Redefining \pageref on input line 6504.
+
+(/usr/share/texlive/texmf-dist/tex/generic/atbegshi/atbegshi.sty
+Package: atbegshi 2019/12/05 v1.19 At begin shipout hook (HO)
+)
+\Hy@abspage=\count291
+\c@Item=\count292
+\c@Hfootnote=\count293
+)
+Package hyperref Info: Driver (autodetected): hpdftex.
+
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hpdftex.def
+File: hpdftex.def 2020/01/14 v7.00d Hyperref driver for pdfTeX
+
+(/usr/share/texlive/texmf-dist/tex/latex/atveryend/atveryend.sty
+Package: atveryend 2019-12-11 v1.11 Hooks at the very end of document (HO)
+Package atveryend Info: \AP@enddocument detected (standard20110627).
+)
+\Fld@listcount=\count294
+\c@bookmark@seq@number=\count295
+
+(/usr/share/texlive/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+Package: rerunfilecheck 2019/12/05 v1.9 Rerun checks for auxiliary files (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
+Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
+)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
+86.
+)
+\Hy@SectionHShift=\skip94
+)
+Package hyperref Info: Option `colorlinks' set `true' on input line 65.
+
+(/usr/share/texlive/texmf-dist/tex/latex/biblatex/biblatex.sty
+Package: biblatex 2019/12/01 v3.14 programmable bibliographies (PK/MW)
+
+(/usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+Package: etoolbox 2019/09/21 v2.5h e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count296
+)
+(/usr/share/texlive/texmf-dist/tex/latex/logreq/logreq.sty
+Package: logreq 2010/08/04 v1.0 xml request logger
+\lrq@indent=\count297
+
+(/usr/share/texlive/texmf-dist/tex/latex/logreq/logreq.def
+File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
+))
+\c@tabx@nest=\count298
+\c@listtotal=\count299
+\c@listcount=\count300
+\c@liststart=\count301
+\c@liststop=\count302
+\c@citecount=\count303
+\c@citetotal=\count304
+\c@multicitecount=\count305
+\c@multicitetotal=\count306
+\c@instcount=\count307
+\c@maxnames=\count308
+\c@minnames=\count309
+\c@maxitems=\count310
+\c@minitems=\count311
+\c@citecounter=\count312
+\c@maxcitecounter=\count313
+\c@savedcitecounter=\count314
+\c@uniquelist=\count315
+\c@uniquename=\count316
+\c@refsection=\count317
+\c@refsegment=\count318
+\c@maxextratitle=\count319
+\c@maxextratitleyear=\count320
+\c@maxextraname=\count321
+\c@maxextradate=\count322
+\c@maxextraalpha=\count323
+\c@abbrvpenalty=\count324
+\c@highnamepenalty=\count325
+\c@lownamepenalty=\count326
+\c@maxparens=\count327
+\c@parenlevel=\count328
+\blx@tempcnta=\count329
+\blx@tempcntb=\count330
+\blx@tempcntc=\count331
+\blx@maxsection=\count332
+\blx@maxsegment@0=\count333
+\blx@notetype=\count334
+\blx@parenlevel@text=\count335
+\blx@parenlevel@foot=\count336
+\blx@sectionciteorder@0=\count337
+\blx@entrysetcounter=\count338
+\labelnumberwidth=\skip95
+\labelalphawidth=\skip96
+\biblabelsep=\skip97
+\bibitemsep=\skip98
+\bibnamesep=\skip99
+\bibinitsep=\skip100
+\bibparsep=\skip101
+\bibhang=\skip102
+\blx@bcfin=\read2
+\blx@bcfout=\write3
+\blx@langwohyphens=\language9
+\c@mincomprange=\count339
+\c@maxcomprange=\count340
+\c@mincompwidth=\count341
+Package biblatex Info: Trying to load biblatex default data model...
+Package biblatex Info: ... file 'blx-dm.def' found.
+
+(/usr/share/texlive/texmf-dist/tex/latex/biblatex/blx-dm.def
+File: blx-dm.def 2019/12/01 v3.14 biblatex localization (PK/MW)
+)
+Package biblatex Info: Trying to load biblatex citestyle data model...
+Package biblatex Info: ... file 'alphabetic.dbx' not found.
+Package biblatex Info: Trying to load biblatex custom data model...
+Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
+\c@afterword=\count342
+\c@savedafterword=\count343
+\c@annotator=\count344
+\c@savedannotator=\count345
+\c@author=\count346
+\c@savedauthor=\count347
+\c@bookauthor=\count348
+\c@savedbookauthor=\count349
+\c@commentator=\count350
+\c@savedcommentator=\count351
+\c@editor=\count352
+\c@savededitor=\count353
+\c@editora=\count354
+\c@savededitora=\count355
+\c@editorb=\count356
+\c@savededitorb=\count357
+\c@editorc=\count358
+\c@savededitorc=\count359
+\c@foreword=\count360
+\c@savedforeword=\count361
+\c@holder=\count362
+\c@savedholder=\count363
+\c@introduction=\count364
+\c@savedintroduction=\count365
+\c@namea=\count366
+\c@savednamea=\count367
+\c@nameb=\count368
+\c@savednameb=\count369
+\c@namec=\count370
+\c@savednamec=\count371
+\c@translator=\count372
+\c@savedtranslator=\count373
+\c@shortauthor=\count374
+\c@savedshortauthor=\count375
+\c@shorteditor=\count376
+\c@savedshorteditor=\count377
+\c@labelname=\count378
+\c@savedlabelname=\count379
+\c@institution=\count380
+\c@savedinstitution=\count381
+\c@lista=\count382
+\c@savedlista=\count383
+\c@listb=\count384
+\c@savedlistb=\count385
+\c@listc=\count386
+\c@savedlistc=\count387
+\c@listd=\count388
+\c@savedlistd=\count389
+\c@liste=\count390
+\c@savedliste=\count391
+\c@listf=\count392
+\c@savedlistf=\count393
+\c@location=\count394
+\c@savedlocation=\count395
+\c@organization=\count396
+\c@savedorganization=\count397
+\c@origlocation=\count398
+\c@savedoriglocation=\count399
+\c@origpublisher=\count400
+\c@savedorigpublisher=\count401
+\c@publisher=\count402
+\c@savedpublisher=\count403
+\c@language=\count404
+\c@savedlanguage=\count405
+\c@origlanguage=\count406
+\c@savedoriglanguage=\count407
+\c@pageref=\count408
+\c@savedpageref=\count409
+\shorthandwidth=\skip103
+\shortjournalwidth=\skip104
+\shortserieswidth=\skip105
+\shorttitlewidth=\skip106
+\shortauthorwidth=\skip107
+\shorteditorwidth=\skip108
+\locallabelnumberwidth=\skip109
+\locallabelalphawidth=\skip110
+\localshorthandwidth=\skip111
+\localshortjournalwidth=\skip112
+\localshortserieswidth=\skip113
+\localshorttitlewidth=\skip114
+\localshortauthorwidth=\skip115
+\localshorteditorwidth=\skip116
+Package biblatex Info: Trying to load compatibility code...
+Package biblatex Info: ... file 'blx-compat.def' found.
+
+(/usr/share/texlive/texmf-dist/tex/latex/biblatex/blx-compat.def
+File: blx-compat.def 2019/12/01 v3.14 biblatex compatibility (PK/MW)
+)
+Package biblatex Info: Trying to load generic definitions...
+Package biblatex Info: ... file 'biblatex.def' found.
+
+(/usr/share/texlive/texmf-dist/tex/latex/biblatex/biblatex.def
+File: biblatex.def 2019/12/01 v3.14 biblatex compatibility (PK/MW)
+\c@textcitecount=\count410
+\c@textcitetotal=\count411
+\c@textcitemaxnames=\count412
+\c@biburlbigbreakpenalty=\count413
+\c@biburlbreakpenalty=\count414
+\c@biburlnumpenalty=\count415
+\c@biburlucpenalty=\count416
+\c@biburllcpenalty=\count417
+\biburlbigskip=\muskip18
+\biburlnumskip=\muskip19
+\biburlucskip=\muskip20
+\biburllcskip=\muskip21
+\c@smartand=\count418
+)
+Package biblatex Info: Trying to load bibliography style 'alphabetic'...
+Package biblatex Info: ... file 'alphabetic.bbx' found.
+
+(/usr/share/texlive/texmf-dist/tex/latex/biblatex/bbx/alphabetic.bbx
+File: alphabetic.bbx 2019/12/01 v3.14 biblatex bibliography style (PK/MW)
+Package biblatex Info: Trying to load bibliography style 'standard'...
+Package biblatex Info: ... file 'standard.bbx' found.
+
+(/usr/share/texlive/texmf-dist/tex/latex/biblatex/bbx/standard.bbx
+File: standard.bbx 2019/12/01 v3.14 biblatex bibliography style (PK/MW)
+\c@bbx:relatedcount=\count419
+\c@bbx:relatedtotal=\count420
+))
+Package biblatex Info: Trying to load citation style 'alphabetic'...
+Package biblatex Info: ... file 'alphabetic.cbx' found.
+
+(/usr/share/texlive/texmf-dist/tex/latex/biblatex/cbx/alphabetic.cbx
+File: alphabetic.cbx 2019/12/01 v3.14 biblatex citation style (PK/MW)
+Package biblatex Info: Redefining '\cite'.
+Package biblatex Info: Redefining '\parencite'.
+Package biblatex Info: Redefining '\footcite'.
+Package biblatex Info: Redefining '\footcitetext'.
+Package biblatex Info: Redefining '\smartcite'.
+Package biblatex Info: Redefining '\textcite'.
+Package biblatex Info: Redefining '\textcites'.
+Package biblatex Info: Redefining '\cites'.
+Package biblatex Info: Redefining '\parencites'.
+Package biblatex Info: Redefining '\smartcites'.
+)
+Package biblatex Info: Trying to load configuration file...
+Package biblatex Info: ... file 'biblatex.cfg' found.
+
+(/usr/share/texlive/texmf-dist/tex/latex/biblatex/biblatex.cfg
+File: biblatex.cfg 
+))
+(/usr/share/texlive/texmf-dist/tex/latex/csquotes/csquotes.sty
+Package: csquotes 2019-12-06 v5.2j context-sensitive quotations (JAW)
+\csq@reset=\count421
+\csq@gtype=\count422
+\csq@glevel=\count423
+\csq@qlevel=\count424
+\csq@maxlvl=\count425
+\csq@tshold=\count426
+\csq@ltx@everypar=\toks24
+
+(/usr/share/texlive/texmf-dist/tex/latex/csquotes/csquotes.def
+File: csquotes.def 2019-12-06 v5.2j csquotes generic definitions (JAW)
+)
+Package csquotes Info: Trying to load configuration file 'csquotes.cfg'...
+Package csquotes Info: ... configuration file loaded successfully.
+
+(/usr/share/texlive/texmf-dist/tex/latex/csquotes/csquotes.cfg
+File: csquotes.cfg 
+)
+Package csquotes Info: Enabling multilingual quotes.
+Package csquotes Info: Redefining alias 'english' -> 'english/american'.
+Package csquotes Info: Redefining alias 'german' -> 'german/quotes'.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/appendix/appendix.sty
+Package: appendix 2020/02/08 v1.2c extra appendix facilities
+\c@@pps=\count427
+\c@@ppsavesec=\count428
+\c@@ppsaveapp=\count429
+)
+(/usr/share/texlive/texmf-dist/tex/latex/minted/minted.sty
+Package: minted 2017/07/19 v2.5 Yet another Pygments shim for LaTeX
+
+(/usr/share/texlive/texmf-dist/tex/latex/fvextra/fvextra.sty
+Package: fvextra 2019/02/04 v1.4 fvextra - extensions and patches for fancyvrb
+
+(/usr/share/texlive/texmf-dist/tex/latex/fancyvrb/fancyvrb.sty
+Package: fancyvrb 2020/01/13 v3.5 verbatim text (tvz,hv)
+\FV@CodeLineNo=\count430
+\FV@InFile=\read3
+\FV@TabBox=\box108
+\c@FancyVerbLine=\count431
+\FV@StepNumber=\count432
+\FV@OutFile=\write4
+)
+(/usr/share/texlive/texmf-dist/tex/latex/upquote/upquote.sty
+Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verba
+tim
+)
+(/usr/share/texlive/texmf-dist/tex/latex/lineno/lineno.sty
+Package: lineno 2005/11/02 line numbers on paragraphs v4.41
+\linenopenalty=\count433
+\output=\toks25
+\linenoprevgraf=\count434
+\linenumbersep=\dimen197
+\linenumberwidth=\dimen198
+\c@linenumber=\count435
+\c@pagewiselinenumber=\count436
+\c@LN@truepage=\count437
+\c@internallinenumber=\count438
+\c@internallinenumbers=\count439
+\quotelinenumbersep=\dimen199
+\bframerule=\dimen256
+\bframesep=\dimen257
+\bframebox=\box109
+
+
+LaTeX Warning: Command \@parboxrestore  has changed.
+               Check if current package is valid.
+
+LaTeX Info: Redefining \\ on input line 3056.
+)
+
+Package fvextra Warning: csquotes should be loaded after fvextra, to avoid a wa
+rning from the lineno package on input line 37.
+
+\c@FV@TrueTabGroupLevel=\count440
+\c@FV@TrueTabCounter=\count441
+\FV@TabBox@Group=\box110
+\FV@TmpLength=\skip117
+\c@FV@HighlightLinesStart=\count442
+\c@FV@HighlightLinesStop=\count443
+\FV@LoopCount=\count444
+\FV@NCharsBox=\box111
+\FV@BreakIndent=\dimen258
+\FV@BreakIndentNChars=\count445
+\FV@BreakSymbolSepLeft=\dimen259
+\FV@BreakSymbolSepLeftNChars=\count446
+\FV@BreakSymbolSepRight=\dimen260
+\FV@BreakSymbolSepRightNChars=\count447
+\FV@BreakSymbolIndentLeft=\dimen261
+\FV@BreakSymbolIndentLeftNChars=\count448
+\FV@BreakSymbolIndentRight=\dimen262
+\FV@BreakSymbolIndentRightNChars=\count449
+\c@FancyVerbLineBreakLast=\count450
+\FV@LineBox=\box112
+\FV@LineIndentBox=\box113
+\FV@LineWidth=\dimen263
+) (/usr/share/texlive/texmf-dist/tex/latex/tools/shellesc.sty
+Package: shellesc 2019/11/08 v1.0c unified shell escape interface for LaTeX
+Package shellesc Info: Unrestricted shell escape enabled on input line 75.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/ifplatform/ifplatform.sty
+Package: ifplatform 2017/10/13 v0.4a Testing for the operating system
+
+(/usr/share/texlive/texmf-dist/tex/generic/catchfile/catchfile.sty
+Package: catchfile 2019/12/09 v1.8 Catch the contents of a file (HO)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/iftex/ifluatex.sty
+Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
+)
+runsystem(uname -s > "thesis.w18")...executed.
+
+ (./thesis.w18)
+runsystem(rm -- "thesis.w18")...executed.
+
+)
+(/usr/share/texlive/texmf-dist/tex/generic/xstring/xstring.sty
+(/usr/share/texlive/texmf-dist/tex/generic/xstring/xstring.tex
+\integerpart=\count451
+\decimalpart=\count452
+)
+Package: xstring 2019/02/06 v1.83 String manipulations (CT)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/framed/framed.sty
+Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
+\OuterFrameSep=\skip118
+\fb@frw=\dimen264
+\fb@frh=\dimen265
+\FrameRule=\dimen266
+\FrameSep=\dimen267
+)
+(/usr/share/texlive/texmf-dist/tex/latex/newfloat/newfloat.sty
+Package: newfloat 2019/09/02 v1.1l Defining new floating environments (AR)
+Package newfloat Info: `wrapfig' package detected.
+)
+\minted@appexistsfile=\read4
+\minted@bgbox=\box114
+\minted@code=\write5
+\c@minted@FancyVerbLineTemp=\count453
+\c@minted@pygmentizecounter=\count454
+Package newfloat Info: New float `listing' with options `fileext=lol,placement=
+tbp' on input line 1151.
+\c@listing=\count455
+Package newfloat Info: float type `listing'=4 on input line 1151.
+Package tocbasic Info: setting babel extension for `lol' on input line 1151.
+\c@sublisting=\count456
+)
+runsystem(mkdir -p _minted-thesis)...executed.
+
+
+(/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: pdftex.def on input line 225.
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1352.
+Package xcolor Info: Model `RGB' extended on input line 1364.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1366.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1367.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1368.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
+)
+Package csquotes Info: Checking for multilingual support...
+Package csquotes Info: ... none found.
+
+
+Package csquotes Warning: No multilingual support.
+(csquotes)                Cannot enable multilingual quotes on input line 113.
+
+runsystem(which pygmentize && touch thesis.aex)...executed.
+
+runsystem(rm thesis.aex)...executed.
+
+(/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdfmode.def
+File: l3backend-pdfmode.def 2020-02-03 L3 backend support: PDF mode
+\l__kernel_color_stack_int=\count457
+\l__pdf_internal_box=\box115
+)
+(./thesis.aux (./includes/MA-titlepage.aux) (./includes/abstract.aux)
+(./includes/acknowledgements.aux) (./chapters/introduction.aux)
+(./chapters/literature.aux) (./chapters/background.aux) (./chapters/dataset.aux
+) (./chapters/experiments.aux) (./chapters/results.aux)
+(./chapters/discussion.aux) (./chapters/conclusion.aux)
+(./includes/eidesstattlicheErklaerung.aux))
+\openout1 = `thesis.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 113.
+LaTeX Font Info:    ... okay on input line 113.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 113.
+LaTeX Font Info:    ... okay on input line 113.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 113.
+LaTeX Font Info:    ... okay on input line 113.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 113.
+LaTeX Font Info:    ... okay on input line 113.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 113.
+LaTeX Font Info:    ... okay on input line 113.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 113.
+LaTeX Font Info:    ... okay on input line 113.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 113.
+LaTeX Font Info:    ... okay on input line 113.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 113.
+LaTeX Font Info:    ... okay on input line 113.
+Package scrbase Info: activating english \contentsname on input line 113.
+Package scrbase Info: activating english \listfigurename on input line 113.
+Package scrbase Info: activating english \listtablename on input line 113.
+
+(/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count458
+\scratchdimen=\dimen268
+\scratchbox=\box116
+\nofMPsegments=\count459
+\nofMParguments=\count460
+\everyMPshowfont=\toks26
+\MPscratchCnt=\count461
+\MPscratchDim=\dimen269
+\MPnumerator=\count462
+\makeMPintoPDFobject=\count463
+\everyMPtoPDFconversion=\toks27
+) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: float package is loaded.
+Package caption Info: hyperref package is loaded.
+Package caption Info: End \AtBeginDocument code.
+\AtBeginShipoutBox=\box117
+Package hyperref Info: Link coloring ON on input line 113.
+
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
+Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
+
+(/usr/share/texlive/texmf-dist/tex/latex/refcount/refcount.sty
+Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
+Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
+)
+\c@section@level=\count464
+)
+LaTeX Info: Redefining \ref on input line 113.
+LaTeX Info: Redefining \pageref on input line 113.
+LaTeX Info: Redefining \nameref on input line 113.
+
+(./thesis.out) (./thesis.out)
+\@outlinefile=\write6
+\openout6 = `thesis.out'.
+
+Class scrbook Info: loading recommended package `bookmark'.
+(scrbook)           Using `bookmark' together with `hyperref' is recommended,
+(scrbook)           because of handling of possible bookmark level gaps.
+(scrbook)           You can avoid loading `bookmark' with KOMA-Script option
+(scrbook)           `bookmarkpackage=false' before \begin{document} and
+(scrbook)           you can avoid this message adding:
+(scrbook)             \usepackage{bookmark}
+(scrbook)           before \begin{document} on input line 113.
+
+(/usr/share/texlive/texmf-dist/tex/latex/bookmark/bookmark.sty
+Package: bookmark 2019/12/03 v1.28 PDF bookmarks (HO)
+
+(/usr/share/texlive/texmf-dist/tex/latex/bookmark/bkm-pdftex.def
+File: bkm-pdftex.def 2019/12/03 v1.28 bookmark driver for pdfTeX (HO)
+Package auxhook Info: \AddLineBeginMainAux comes a little late,
+(auxhook)             because the main .aux file is already opened on input lin
+e 168.
+\BKM@id=\count465
+))
+Package biblatex Info: Trying to load language 'english'...
+Package biblatex Info: ... file 'english.lbx' found.
+
+(/usr/share/texlive/texmf-dist/tex/latex/biblatex/lbx/english.lbx
+File: english.lbx 2019/12/01 v3.14 biblatex localization (PK/MW)
+)
+Package biblatex Info: Input encoding 'utf8' detected.
+Package biblatex Info: Automatic encoding selection.
+(biblatex)             Assuming data encoding 'utf8'.
+\openout3 = `thesis.bcf'.
+
+Package biblatex Info: Trying to load bibliographic data...
+Package biblatex Info: ... file 'thesis.bbl' found.
+
+(./thesis.bbl)
+Package biblatex Info: Reference section=0 on input line 113.
+Package biblatex Info: Reference segment=0 on input line 113.
+Package newfloat Info: `float' package detected.
+\openout2 = `includes/MA-titlepage.aux'.
+
+ (./includes/MA-titlepage.tex
+<images/uni-logo.png, id=4, 501.875pt x 133.49875pt>
+File: images/uni-logo.png Graphic file (type png)
+<use images/uni-logo.png>
+Package pdftex.def Info: images/uni-logo.png  used on input line 7.
+(pdftex.def)             Requested size: 199.16928pt x 52.97891pt.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 28.
+
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 28.
+
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+) [1
+
+
+
+
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./images/uni-logo.png>]) (
+./thesis.toc
+[2
+
+
+
+])
+\tf@toc=\write7
+\openout7 = `thesis.toc'.
+
+ [3]
+\openout2 = `includes/abstract.aux'.
+
+ (./includes/abstract.tex) [4
+
+
+
+]
+\openout2 = `includes/acknowledgements.aux'.
+
+ (./includes/acknowledgements.tex)
+[5
+
+
+
+
+] (./thesis.lof [6
+
+
+
+
+
+] [7])
+\tf@lof=\write8
+\openout8 = `thesis.lof'.
+
+ [8] (./thesis.lot)
+\tf@lot=\write9
+\openout9 = `thesis.lot'.
+
+ [9
+
+
+
+
+] (./thesis.loa)
+\tf@loa=\write10
+\openout10 = `thesis.loa'.
+
+ [10
+
+
+
+
+]
+\openout2 = `chapters/introduction.aux'.
+
+
+(./chapters/introduction.tex
+chapter 1.
+
+Class scrbook Warning: \float@addtolists detected!
+(scrbook)              Implementation of \float@addtolist became
+(scrbook)              deprecated in KOMA-Script v3.01 2008/11/14 and
+(scrbook)              has been replaced by several more flexible
+(scrbook)              features of package `tocbasic`.
+(scrbook)              Since Version 3.12 support for deprecated
+(scrbook)              \float@addtolist interface has been
+(scrbook)              restricted to only some of the KOMA-Script
+(scrbook)              features and been removed from others.
+(scrbook)              Loading of package `scrhack' may help to
+(scrbook)              avoid this warning, if you are using a
+(scrbook)              a package that still implements the
+(scrbook)              deprecated \float@addtolist interface .
+
+<images/introduction/digits.png, id=368, 179.67125pt x 45.16875pt>
+File: images/introduction/digits.png Graphic file (type png)
+<use images/introduction/digits.png>
+Package pdftex.def Info: images/introduction/digits.png  used on input line 7.
+(pdftex.def)             Requested size: 224.06548pt x 56.33327pt.
+[1
+
+
+
+
+ <./images/introduction/digits.png>] [2] [3]
+<images/introduction/flow_1.png, id=414, 463.7325pt x 423.5825pt>
+File: images/introduction/flow_1.png Graphic file (type png)
+<use images/introduction/flow_1.png>
+Package pdftex.def Info: images/introduction/flow_1.png  used on input line 71.
+
+(pdftex.def)             Requested size: 224.06548pt x 204.66812pt.
+ [4 <./images/introduction/flow_1.png>]) [5]
+\openout2 = `chapters/literature.aux'.
+
+ (./chapters/literature.tex
+chapter 2.
+[6
+
+
+
+
+] [7]) [8]
+\openout2 = `chapters/background.aux'.
+
+ (./chapters/background.tex
+chapter 3.
+<images/background/perceptron.png, id=479, 597.23125pt x 402.50375pt>
+File: images/background/perceptron.png Graphic file (type png)
+<use images/background/perceptron.png>
+Package pdftex.def Info: images/background/perceptron.png  used on input line 1
+7.
+(pdftex.def)             Requested size: 313.69029pt x 211.40976pt.
+[9
+
+
+
+
+ <./images/background/perceptron.png>]
+<images/background/relu.png, id=492, 359.3425pt x 209.78375pt>
+File: images/background/relu.png Graphic file (type png)
+<use images/background/relu.png>
+Package pdftex.def Info: images/background/relu.png  used on input line 56.
+(pdftex.def)             Requested size: 224.06548pt x 130.81361pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[10]
+<images/background/sigmoid.jpg, id=506, 903.375pt x 501.875pt>
+File: images/background/sigmoid.jpg Graphic file (type jpg)
+<use images/background/sigmoid.jpg>
+Package pdftex.def Info: images/background/sigmoid.jpg  used on input line 69.
+(pdftex.def)             Requested size: 313.69029pt x 174.27278pt.
+ [11 <./images/background/relu.png> <./images/background/sigmoid.jpg>]
+<images/background/tanh.png, id=519, 697.60625pt x 456.70625pt>
+File: images/background/tanh.png Graphic file (type png)
+<use images/background/tanh.png>
+Package pdftex.def Info: images/background/tanh.png  used on input line 89.
+(pdftex.def)             Requested size: 268.8813pt x 176.03105pt.
+
+[12 <./images/background/tanh.png>] [13] [14]
+<images/background/neural_network.png, id=554, 663.47874pt x 402.50375pt>
+File: images/background/neural_network.png Graphic file (type png)
+<use images/background/neural_network.png>
+Package pdftex.def Info: images/background/neural_network.png  used on input li
+ne 159.
+(pdftex.def)             Requested size: 313.69029pt x 190.30072pt.
+ [15 <./images/background/neural_network.png>]
+<images/background/back_prop.png, id=566, 566.115pt x 221.82875pt>
+File: images/background/back_prop.png Graphic file (type png)
+<use images/background/back_prop.png>
+Package pdftex.def Info: images/background/back_prop.png  used on input line 18
+5.
+(pdftex.def)             Requested size: 313.69029pt x 122.92007pt.
+ [16 <./images/background/back_prop.png>]
+<images/background/back_prop_1.png, id=575, 349.305pt x 196.735pt>
+File: images/background/back_prop_1.png Graphic file (type png)
+<use images/background/back_prop_1.png>
+Package pdftex.def Info: images/background/back_prop_1.png  used on input line 
+202.
+(pdftex.def)             Requested size: 179.24963pt x 100.9579pt.
+ [17 <./images/background/back_prop_1.png>]
+<images/background/back_prop_2.png, id=586, 302.12875pt x 196.735pt>
+File: images/background/back_prop_2.png Graphic file (type png)
+<use images/background/back_prop_2.png>
+Package pdftex.def Info: images/background/back_prop_2.png  used on input line 
+231.
+(pdftex.def)             Requested size: 179.24963pt x 116.72104pt.
+<images/background/back_prop_3.png, id=587, 304.13625pt x 196.735pt>
+File: images/background/back_prop_3.png Graphic file (type png)
+<use images/background/back_prop_3.png>
+Package pdftex.def Info: images/background/back_prop_3.png  used on input line 
+255.
+(pdftex.def)             Requested size: 179.24963pt x 115.95255pt.
+ [18 <./images/background/back_prop_2.png> <./images/background/back_prop_3.png
+>] [19]
+<images/background/jordan_rnn.png, id=611, 367.3725pt x 260.975pt>
+File: images/background/jordan_rnn.png Graphic file (type png)
+<use images/background/jordan_rnn.png>
+Package pdftex.def Info: images/background/jordan_rnn.png  used on input line 2
+91.
+(pdftex.def)             Requested size: 182.09746pt x 129.36023pt.
+<images/background/rnn.png, id=616, 811.03pt x 302.12875pt>
+File: images/background/rnn.png Graphic file (type png)
+<use images/background/rnn.png>
+Package pdftex.def Info: images/background/rnn.png  used on input line 302.
+(pdftex.def)             Requested size: 403.31511pt x 150.248pt.
+ [20 <./images/background/jordan_rnn.png> <./images/background/rnn.png>]
+<images/background/rnn_unit.png, id=627, 505.89pt x 261.97874pt>
+File: images/background/rnn_unit.png Graphic file (type png)
+<use images/background/rnn_unit.png>
+Package pdftex.def Info: images/background/rnn_unit.png  used on input line 329
+.
+(pdftex.def)             Requested size: 268.8813pt x 139.24382pt.
+<images/background/bptt.png, id=631, 488.82625pt x 302.12875pt>
+File: images/background/bptt.png Graphic file (type png)
+<use images/background/bptt.png>
+Package pdftex.def Info: images/background/bptt.png  used on input line 345.
+(pdftex.def)             Requested size: 313.69029pt x 193.88728pt.
+ [21 <./images/background/rnn_unit.png>] [22 <./images/background/bptt.png>] [2
+3] [24]
+<images/background/lstm_unit.png, id=686, 785.93625pt x 483.8075pt>
+File: images/background/lstm_unit.png Graphic file (type png)
+<use images/background/lstm_unit.png>
+Package pdftex.def Info: images/background/lstm_unit.png  used on input line 43
+1.
+(pdftex.def)             Requested size: 358.50612pt x 220.6938pt.
+ [25 <./images/background/lstm_unit.png>] [26]
+<images/background/gru_unit.png, id=719, 755.82375pt x 482.80376pt>
+File: images/background/gru_unit.png Graphic file (type png)
+<use images/background/gru_unit.png>
+Package pdftex.def Info: images/background/gru_unit.png  used on input line 491
+.
+(pdftex.def)             Requested size: 358.50612pt x 229.00266pt.
+ [27 <./images/background/gru_unit.png>] [28] [29]
+
+Package amsmath Warning: Foreign command \atop;
+(amsmath)                \frac or \genfrac should be used instead
+(amsmath)                 on input line 567.
+
+[30] [31] [32] [33] [34]) [35]
+\openout2 = `chapters/dataset.aux'.
+
+ (./chapters/dataset.tex
+chapter 4.
+<images/dataset/reber.png, id=825, 638.385pt x 342.27875pt>
+File: images/dataset/reber.png Graphic file (type png)
+<use images/dataset/reber.png>
+Package pdftex.def Info: images/dataset/reber.png  used on input line 9.
+(pdftex.def)             Requested size: 403.31511pt x 216.24257pt.
+[36
+
+
+
+
+ <./images/dataset/reber.png>]
+<images/dataset/string_counts.png, id=837, 1084.05pt x 578.16pt>
+File: images/dataset/string_counts.png Graphic file (type png)
+<use images/dataset/string_counts.png>
+Package pdftex.def Info: images/dataset/string_counts.png  used on input line 4
+6.
+(pdftex.def)             Requested size: 448.13095pt x 239.00562pt.
+ [37 <./images/dataset/string_counts.png>]
+<images/dataset/entire_dataset_string_len.png, id=843, 1084.05pt x 578.16pt>
+File: images/dataset/entire_dataset_string_len.png Graphic file (type png)
+<use images/dataset/entire_dataset_string_len.png>
+Package pdftex.def Info: images/dataset/entire_dataset_string_len.png  used on 
+input line 74.
+(pdftex.def)             Requested size: 403.31511pt x 215.09799pt.
+<images/dataset/train_dataset_string_len.png, id=844, 1084.05pt x 578.16pt>
+File: images/dataset/train_dataset_string_len.png Graphic file (type png)
+<use images/dataset/train_dataset_string_len.png>
+Package pdftex.def Info: images/dataset/train_dataset_string_len.png  used on i
+nput line 85.
+(pdftex.def)             Requested size: 403.31511pt x 215.09799pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[38 <./images/dataset/entire_dataset_string_len.png>]
+<images/dataset/test_dataset_string_len.png, id=850, 1084.05pt x 578.16pt>
+File: images/dataset/test_dataset_string_len.png Graphic file (type png)
+<use images/dataset/test_dataset_string_len.png>
+Package pdftex.def Info: images/dataset/test_dataset_string_len.png  used on in
+put line 96.
+(pdftex.def)             Requested size: 403.31511pt x 215.09799pt.
+) [39 <./images/dataset/train_dataset_string_len.png> <./images/dataset/test_da
+taset_string_len.png>]
+\openout2 = `chapters/experiments.aux'.
+
+
+(./chapters/experiments.tex
+chapter 5.
+<images/experiments/training_rnn.png, id=859, 1142.2675pt x 791.95876pt>
+File: images/experiments/training_rnn.png Graphic file (type png)
+<use images/experiments/training_rnn.png>
+Package pdftex.def Info: images/experiments/training_rnn.png  used on input lin
+e 13.
+(pdftex.def)             Requested size: 380.91403pt x 264.09033pt.
+[40
+
+
+
+
+ <./images/experiments/training_rnn.png>]
+<images/experiments/input-to-embedding.png, id=867, 772.8875pt x 482.80376pt>
+File: images/experiments/input-to-embedding.png Graphic file (type png)
+<use images/experiments/input-to-embedding.png>
+Package pdftex.def Info: images/experiments/input-to-embedding.png  used on inp
+ut line 25.
+(pdftex.def)             Requested size: 380.91403pt x 237.94617pt.
+<images/experiments/recurrent_layer.png, id=868, 906.38625pt x 348.30125pt>
+File: images/experiments/recurrent_layer.png Graphic file (type png)
+<use images/experiments/recurrent_layer.png>
+Package pdftex.def Info: images/experiments/recurrent_layer.png  used on input 
+line 35.
+(pdftex.def)             Requested size: 448.13095pt x 172.20503pt.
+ [41 <./images/experiments/input-to-embedding.png>]
+Overfull \hbox (13.89955pt too wide) in paragraph at lines 45--47
+\OT1/cmr/m/n/12 where $[]$ is the out-put, $\OML/cmm/m/it/12 W$ \OT1/cmr/m/n/12
+ rep-re-sents weight ma-tri-ces of shape $(\OML/cmm/m/it/12 output[]size \OT1/c
+mr/m/n/12 = 2\OML/cmm/m/it/12 ; input[]size \OT1/cmr/m/n/12 =
+ []
+
+<images/experiments/output_layer.png, id=883, 330.23375pt x 390.45876pt>
+File: images/experiments/output_layer.png Graphic file (type png)
+<use images/experiments/output_layer.png>
+Package pdftex.def Info: images/experiments/output_layer.png  used on input lin
+e 52.
+(pdftex.def)             Requested size: 134.44064pt x 158.96307pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[42 <./images/experiments/recurrent_layer.png>] [43 <./images/experiments/outpu
+t_layer.png>]
+<images/experiments/both_prune.png, id=896, 653.44125pt x 490.83376pt>
+File: images/experiments/both_prune.png Graphic file (type png)
+<use images/experiments/both_prune.png>
+Package pdftex.def Info: images/experiments/both_prune.png  used on input line 
+93.
+(pdftex.def)             Requested size: 147.88403pt x 111.07692pt.
+<images/experiments/i2h_prune.png, id=897, 654.445pt x 490.83376pt>
+File: images/experiments/i2h_prune.png Graphic file (type png)
+<use images/experiments/i2h_prune.png>
+Package pdftex.def Info: images/experiments/i2h_prune.png  used on input line 9
+8.
+(pdftex.def)             Requested size: 147.88403pt x 110.91216pt.
+<images/experiments/h2h_prune.png, id=898, 654.445pt x 490.83376pt>
+File: images/experiments/h2h_prune.png Graphic file (type png)
+<use images/experiments/h2h_prune.png>
+Package pdftex.def Info: images/experiments/h2h_prune.png  used on input line 1
+03.
+(pdftex.def)             Requested size: 147.88403pt x 110.91216pt.
+ [44 <./images/experiments/both_prune.png> <./images/experiments/i2h_prune.png>
+ <./images/experiments/h2h_prune.png>]
+<images/experiments/three_neuron.png, id=917, 221.82875pt x 141.52875pt>
+File: images/experiments/three_neuron.png Graphic file (type png)
+<use images/experiments/three_neuron.png>
+Package pdftex.def Info: images/experiments/three_neuron.png  used on input lin
+e 128.
+(pdftex.def)             Requested size: 134.44064pt x 85.77307pt.
+<images/experiments/pruned_three_neuron.png, id=919, 413.545pt x 142.5325pt>
+File: images/experiments/pruned_three_neuron.png Graphic file (type png)
+<use images/experiments/pruned_three_neuron.png>
+Package pdftex.def Info: images/experiments/pruned_three_neuron.png  used on in
+put line 176.
+(pdftex.def)             Requested size: 224.06548pt x 77.22737pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[45 <./images/experiments/three_neuron.png>] [46 <./images/experiments/pruned_t
+hree_neuron.png>] [47]
+<images/experiments/undirected.png, id=955, 447.8331pt x 303.2931pt>
+File: images/experiments/undirected.png Graphic file (type png)
+<use images/experiments/undirected.png>
+Package pdftex.def Info: images/experiments/undirected.png  used on input line 
+241.
+(pdftex.def)             Requested size: 201.65755pt x 136.56856pt.
+<images/experiments/directed.png, id=956, 447.8331pt x 303.2931pt>
+File: images/experiments/directed.png Graphic file (type png)
+<use images/experiments/directed.png>
+Package pdftex.def Info: images/experiments/directed.png  used on input line 25
+1.
+(pdftex.def)             Requested size: 201.65755pt x 136.56856pt.
+ [48 <./images/experiments/undirected.png> <./images/experiments/directed.png>]
+LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 2
+65.
+ (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 265.
+<images/experiments/neural_arc.png, id=964, 252.945pt x 574.145pt>
+File: images/experiments/neural_arc.png Graphic file (type png)
+<use images/experiments/neural_arc.png>
+Package pdftex.def Info: images/experiments/neural_arc.png  used on input line 
+280.
+(pdftex.def)             Requested size: 112.03273pt x 254.29788pt.
+<images/experiments/recurrent_arc.png, id=968, 984.67876pt x 793.96625pt>
+File: images/experiments/recurrent_arc.png Graphic file (type png)
+<use images/experiments/recurrent_arc.png>
+Package pdftex.def Info: images/experiments/recurrent_arc.png  used on input li
+ne 292.
+(pdftex.def)             Requested size: 358.50612pt x 289.07443pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[49 <./images/experiments/neural_arc.png>] [50 <./images/experiments/recurrent_
+arc.png>]) [51]
+\openout2 = `chapters/results.aux'.
+
+ (./chapters/results.tex
+chapter 6.
+<images/results/base_model/rnn_tanh_accuracy.png, id=988, 1084.05pt x 578.16pt>
+
+File: images/results/base_model/rnn_tanh_accuracy.png Graphic file (type png)
+<use images/results/base_model/rnn_tanh_accuracy.png>
+Package pdftex.def Info: images/results/base_model/rnn_tanh_accuracy.png  used 
+on input line 15.
+(pdftex.def)             Requested size: 367.47066pt x 195.98071pt.
+[52
+
+
+
+
+ <./images/results/base_model/rnn_tanh_accuracy.png>]
+<images/results/base_model/rnn_relu_accuracy.png, id=996, 1084.05pt x 578.16pt>
+
+File: images/results/base_model/rnn_relu_accuracy.png Graphic file (type png)
+<use images/results/base_model/rnn_relu_accuracy.png>
+Package pdftex.def Info: images/results/base_model/rnn_relu_accuracy.png  used 
+on input line 25.
+(pdftex.def)             Requested size: 367.47066pt x 195.98071pt.
+<images/results/base_model/lstm_accuracy.png, id=999, 1084.05pt x 578.16pt>
+File: images/results/base_model/lstm_accuracy.png Graphic file (type png)
+<use images/results/base_model/lstm_accuracy.png>
+Package pdftex.def Info: images/results/base_model/lstm_accuracy.png  used on i
+nput line 35.
+(pdftex.def)             Requested size: 367.47066pt x 195.98071pt.
+<images/results/base_model/gru_accuracy.png, id=1002, 1084.05pt x 578.16pt>
+File: images/results/base_model/gru_accuracy.png Graphic file (type png)
+<use images/results/base_model/gru_accuracy.png>
+Package pdftex.def Info: images/results/base_model/gru_accuracy.png  used on in
+put line 45.
+(pdftex.def)             Requested size: 367.47066pt x 195.98071pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[53 <./images/results/base_model/rnn_relu_accuracy.png> <./images/results/base_
+model/lstm_accuracy.png>]
+<images/results/pruning/rnn_tanh_pruning_evaluation.png, id=1012, 1084.05pt x 5
+78.16pt>
+File: images/results/pruning/rnn_tanh_pruning_evaluation.png Graphic file (type
+ png)
+<use images/results/pruning/rnn_tanh_pruning_evaluation.png>
+Package pdftex.def Info: images/results/pruning/rnn_tanh_pruning_evaluation.png
+  used on input line 69.
+(pdftex.def)             Requested size: 358.50612pt x 191.1992pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<images/results/pruning/rnn_tanh_accuracy_regain.png, id=1013, 1084.05pt x 578.
+16pt>
+File: images/results/pruning/rnn_tanh_accuracy_regain.png Graphic file (type pn
+g)
+<use images/results/pruning/rnn_tanh_accuracy_regain.png>
+Package pdftex.def Info: images/results/pruning/rnn_tanh_accuracy_regain.png  u
+sed on input line 79.
+(pdftex.def)             Requested size: 358.50612pt x 191.1992pt.
+
+Underfull \hbox (badness 1242) in paragraph at lines 81--81
+[][]|\OT1/cmr/m/n/10 The num-ber of epochs re-quired to re-gain the ac-cu-racy 
+of
+ []
+
+[54 <./images/results/base_model/gru_accuracy.png>] [55 <./images/results/pruni
+ng/rnn_tanh_pruning_evaluation.png> <./images/results/pruning/rnn_tanh_accuracy
+_regain.png>]
+<images/results/pruning/rnn_relu_pruning_evaluation.png, id=1026, 1084.05pt x 5
+78.16pt>
+File: images/results/pruning/rnn_relu_pruning_evaluation.png Graphic file (type
+ png)
+<use images/results/pruning/rnn_relu_pruning_evaluation.png>
+Package pdftex.def Info: images/results/pruning/rnn_relu_pruning_evaluation.png
+  used on input line 91.
+(pdftex.def)             Requested size: 358.50612pt x 191.1992pt.
+<images/results/pruning/rnn_relu_accuracy_regain.png, id=1027, 1084.05pt x 578.
+16pt>
+File: images/results/pruning/rnn_relu_accuracy_regain.png Graphic file (type pn
+g)
+<use images/results/pruning/rnn_relu_accuracy_regain.png>
+Package pdftex.def Info: images/results/pruning/rnn_relu_accuracy_regain.png  u
+sed on input line 101.
+(pdftex.def)             Requested size: 358.50612pt x 191.1992pt.
+
+Underfull \hbox (badness 1242) in paragraph at lines 103--103
+[][]|\OT1/cmr/m/n/10 The num-ber of epochs re-quired to re-gain the ac-cu-racy 
+of
+ []
+
+[56 <./images/results/pruning/rnn_relu_pruning_evaluation.png> <./images/result
+s/pruning/rnn_relu_accuracy_regain.png>]
+<images/results/pruning/lstm_pruning_evaluation.png, id=1035, 1084.05pt x 578.1
+6pt>
+File: images/results/pruning/lstm_pruning_evaluation.png Graphic file (type png
+)
+<use images/results/pruning/lstm_pruning_evaluation.png>
+Package pdftex.def Info: images/results/pruning/lstm_pruning_evaluation.png  us
+ed on input line 113.
+(pdftex.def)             Requested size: 358.50612pt x 191.1992pt.
+<images/results/pruning/lstm_accuracy_regain.png, id=1036, 1084.05pt x 578.16pt
+>
+File: images/results/pruning/lstm_accuracy_regain.png Graphic file (type png)
+<use images/results/pruning/lstm_accuracy_regain.png>
+Package pdftex.def Info: images/results/pruning/lstm_accuracy_regain.png  used 
+on input line 123.
+(pdftex.def)             Requested size: 358.50612pt x 191.1992pt.
+ [57 <./images/results/pruning/lstm_pruning_evaluation.png> <./images/results/p
+runing/lstm_accuracy_regain.png>]
+<images/results/pruning/gru_pruning_evaluation.png, id=1045, 1084.05pt x 578.16
+pt>
+File: images/results/pruning/gru_pruning_evaluation.png Graphic file (type png)
+
+<use images/results/pruning/gru_pruning_evaluation.png>
+Package pdftex.def Info: images/results/pruning/gru_pruning_evaluation.png  use
+d on input line 135.
+(pdftex.def)             Requested size: 358.50612pt x 191.1992pt.
+<images/results/pruning/gru_accuracy_regain.png, id=1046, 1084.05pt x 578.16pt>
+
+File: images/results/pruning/gru_accuracy_regain.png Graphic file (type png)
+<use images/results/pruning/gru_accuracy_regain.png>
+Package pdftex.def Info: images/results/pruning/gru_accuracy_regain.png  used o
+n input line 145.
+(pdftex.def)             Requested size: 358.50612pt x 191.1992pt.
+
+[58 <./images/results/pruning/gru_pruning_evaluation.png> <./images/results/pru
+ning/gru_accuracy_regain.png>]
+<images/results/pruning_i2h/rnn_tanh_i2h_pruning_evaluation.png, id=1055, 1084.
+05pt x 578.16pt>
+File: images/results/pruning_i2h/rnn_tanh_i2h_pruning_evaluation.png Graphic fi
+le (type png)
+<use images/results/pruning_i2h/rnn_tanh_i2h_pruning_evaluation.png>
+Package pdftex.def Info: images/results/pruning_i2h/rnn_tanh_i2h_pruning_evalua
+tion.png  used on input line 161.
+(pdftex.def)             Requested size: 358.50612pt x 191.1992pt.
+<images/results/pruning_i2h/rnn_tanh_i2h_accuracy_regain.png, id=1057, 1084.05p
+t x 578.16pt>
+File: images/results/pruning_i2h/rnn_tanh_i2h_accuracy_regain.png Graphic file 
+(type png)
+<use images/results/pruning_i2h/rnn_tanh_i2h_accuracy_regain.png>
+Package pdftex.def Info: images/results/pruning_i2h/rnn_tanh_i2h_accuracy_regai
+n.png  used on input line 173.
+(pdftex.def)             Requested size: 358.50612pt x 191.1992pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[59 <./images/results/pruning_i2h/rnn_tanh_i2h_pruning_evaluation.png>]
+<images/results/pruning_i2h/rnn_relu_i2h_pruning_evaluation.png, id=1064, 1084.
+05pt x 578.16pt>
+File: images/results/pruning_i2h/rnn_relu_i2h_pruning_evaluation.png Graphic fi
+le (type png)
+<use images/results/pruning_i2h/rnn_relu_i2h_pruning_evaluation.png>
+Package pdftex.def Info: images/results/pruning_i2h/rnn_relu_i2h_pruning_evalua
+tion.png  used on input line 183.
+(pdftex.def)             Requested size: 358.50612pt x 191.1992pt.
+<images/results/pruning_i2h/rnn_relu_i2h_accuracy_regain.png, id=1066, 1084.05p
+t x 578.16pt>
+File: images/results/pruning_i2h/rnn_relu_i2h_accuracy_regain.png Graphic file 
+(type png)
+<use images/results/pruning_i2h/rnn_relu_i2h_accuracy_regain.png>
+Package pdftex.def Info: images/results/pruning_i2h/rnn_relu_i2h_accuracy_regai
+n.png  used on input line 193.
+(pdftex.def)             Requested size: 358.50612pt x 191.1992pt.
+
+[60 <./images/results/pruning_i2h/rnn_tanh_i2h_accuracy_regain.png> <./images/r
+esults/pruning_i2h/rnn_relu_i2h_pruning_evaluation.png>]
+<images/results/pruning_i2h/lstm_i2h_pruning_evaluation.png, id=1073, 1084.05pt
+ x 578.16pt>
+File: images/results/pruning_i2h/lstm_i2h_pruning_evaluation.png Graphic file (
+type png)
+<use images/results/pruning_i2h/lstm_i2h_pruning_evaluation.png>
+Package pdftex.def Info: images/results/pruning_i2h/lstm_i2h_pruning_evaluation
+.png  used on input line 205.
+(pdftex.def)             Requested size: 358.50612pt x 191.1992pt.
+ [61 <./images/results/pruning_i2h/rnn_relu_i2h_accuracy_regain.png> <./images/
+results/pruning_i2h/lstm_i2h_pruning_evaluation.png>]
+<images/results/pruning_i2h/lstm_i2h_accuracy_regain.png, id=1081, 1084.05pt x 
+578.16pt>
+File: images/results/pruning_i2h/lstm_i2h_accuracy_regain.png Graphic file (typ
+e png)
+<use images/results/pruning_i2h/lstm_i2h_accuracy_regain.png>
+Package pdftex.def Info: images/results/pruning_i2h/lstm_i2h_accuracy_regain.pn
+g  used on input line 215.
+(pdftex.def)             Requested size: 358.50612pt x 191.1992pt.
+<images/results/pruning_i2h/gru_i2h_pruning_evaluation.png, id=1082, 1084.05pt 
+x 578.16pt>
+File: images/results/pruning_i2h/gru_i2h_pruning_evaluation.png Graphic file (t
+ype png)
+<use images/results/pruning_i2h/gru_i2h_pruning_evaluation.png>
+Package pdftex.def Info: images/results/pruning_i2h/gru_i2h_pruning_evaluation.
+png  used on input line 225.
+(pdftex.def)             Requested size: 358.50612pt x 191.1992pt.
+ [62 <./images/results/pruning_i2h/lstm_i2h_accuracy_regain.png> <./images/resu
+lts/pruning_i2h/gru_i2h_pruning_evaluation.png>]
+<images/results/pruning_i2h/gru_i2h_accuracy_regain.png, id=1090, 1084.05pt x 5
+78.16pt>
+File: images/results/pruning_i2h/gru_i2h_accuracy_regain.png Graphic file (type
+ png)
+<use images/results/pruning_i2h/gru_i2h_accuracy_regain.png>
+Package pdftex.def Info: images/results/pruning_i2h/gru_i2h_accuracy_regain.png
+  used on input line 235.
+(pdftex.def)             Requested size: 358.50612pt x 191.1992pt.
+<images/results/pruning_h2h/rnn_tanh_h2h_pruning_evaluation.png, id=1092, 1084.
+05pt x 578.16pt>
+File: images/results/pruning_h2h/rnn_tanh_h2h_pruning_evaluation.png Graphic fi
+le (type png)
+<use images/results/pruning_h2h/rnn_tanh_h2h_pruning_evaluation.png>
+Package pdftex.def Info: images/results/pruning_h2h/rnn_tanh_h2h_pruning_evalua
+tion.png  used on input line 251.
+(pdftex.def)             Requested size: 358.50612pt x 191.1992pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<images/results/pruning_h2h/rnn_tanh_h2h_accuracy_regain.png, id=1094, 1084.05p
+t x 578.16pt>
+File: images/results/pruning_h2h/rnn_tanh_h2h_accuracy_regain.png Graphic file 
+(type png)
+<use images/results/pruning_h2h/rnn_tanh_h2h_accuracy_regain.png>
+Package pdftex.def Info: images/results/pruning_h2h/rnn_tanh_h2h_accuracy_regai
+n.png  used on input line 261.
+(pdftex.def)             Requested size: 358.50612pt x 191.1992pt.
+[63 <./images/results/pruning_i2h/gru_i2h_accuracy_regain.png>]
+<images/results/pruning_h2h/rnn_relu_h2h_pruning_evaluation.png, id=1101, 1084.
+05pt x 578.16pt>
+File: images/results/pruning_h2h/rnn_relu_h2h_pruning_evaluation.png Graphic fi
+le (type png)
+<use images/results/pruning_h2h/rnn_relu_h2h_pruning_evaluation.png>
+Package pdftex.def Info: images/results/pruning_h2h/rnn_relu_h2h_pruning_evalua
+tion.png  used on input line 273.
+(pdftex.def)             Requested size: 358.50612pt x 191.1992pt.
+ [64 <./images/results/pruning_h2h/rnn_tanh_h2h_pruning_evaluation.png> <./imag
+es/results/pruning_h2h/rnn_tanh_h2h_accuracy_regain.png>]
+<images/results/pruning_h2h/rnn_relu_h2h_accuracy_regain.png, id=1108, 1084.05p
+t x 578.16pt>
+File: images/results/pruning_h2h/rnn_relu_h2h_accuracy_regain.png Graphic file 
+(type png)
+<use images/results/pruning_h2h/rnn_relu_h2h_accuracy_regain.png>
+Package pdftex.def Info: images/results/pruning_h2h/rnn_relu_h2h_accuracy_regai
+n.png  used on input line 283.
+(pdftex.def)             Requested size: 358.50612pt x 191.1992pt.
+ [65 <./images/results/pruning_h2h/rnn_relu_h2h_pruning_evaluation.png> <./imag
+es/results/pruning_h2h/rnn_relu_h2h_accuracy_regain.png>]
+<images/results/pruning_h2h/lstm_h2h_pruning_evaluation.png, id=1116, 1084.05pt
+ x 578.16pt>
+File: images/results/pruning_h2h/lstm_h2h_pruning_evaluation.png Graphic file (
+type png)
+<use images/results/pruning_h2h/lstm_h2h_pruning_evaluation.png>
+Package pdftex.def Info: images/results/pruning_h2h/lstm_h2h_pruning_evaluation
+.png  used on input line 295.
+(pdftex.def)             Requested size: 358.50612pt x 191.1992pt.
+<images/results/pruning_h2h/lstm_h2h_accuracy_regain.png, id=1117, 1084.05pt x 
+578.16pt>
+File: images/results/pruning_h2h/lstm_h2h_accuracy_regain.png Graphic file (typ
+e png)
+<use images/results/pruning_h2h/lstm_h2h_accuracy_regain.png>
+Package pdftex.def Info: images/results/pruning_h2h/lstm_h2h_accuracy_regain.pn
+g  used on input line 305.
+(pdftex.def)             Requested size: 358.50612pt x 191.1992pt.
+ [66 <./images/results/pruning_h2h/lstm_h2h_pruning_evaluation.png> <./images/r
+esults/pruning_h2h/lstm_h2h_accuracy_regain.png>]
+<images/results/pruning_h2h/gru_h2h_pruning_evaluation.png, id=1125, 1084.05pt 
+x 578.16pt>
+File: images/results/pruning_h2h/gru_h2h_pruning_evaluation.png Graphic file (t
+ype png)
+<use images/results/pruning_h2h/gru_h2h_pruning_evaluation.png>
+Package pdftex.def Info: images/results/pruning_h2h/gru_h2h_pruning_evaluation.
+png  used on input line 317.
+(pdftex.def)             Requested size: 358.50612pt x 191.1992pt.
+<images/results/pruning_h2h/gru_h2h_accuracy_regain.png, id=1126, 1084.05pt x 5
+78.16pt>
+File: images/results/pruning_h2h/gru_h2h_accuracy_regain.png Graphic file (type
+ png)
+<use images/results/pruning_h2h/gru_h2h_accuracy_regain.png>
+Package pdftex.def Info: images/results/pruning_h2h/gru_h2h_accuracy_regain.png
+  used on input line 327.
+(pdftex.def)             Requested size: 358.50612pt x 191.1992pt.
+ [67 <./images/results/pruning_h2h/gru_h2h_pruning_evaluation.png> <./images/re
+sults/pruning_h2h/gru_h2h_accuracy_regain.png>]
+<images/results/random/tanh/graph_test_acc.png, id=1133, 361.35pt x 361.35pt>
+File: images/results/random/tanh/graph_test_acc.png Graphic file (type png)
+<use images/results/random/tanh/graph_test_acc.png>
+Package pdftex.def Info: images/results/random/tanh/graph_test_acc.png  used on
+ input line 351.
+(pdftex.def)             Requested size: 201.65755pt x 201.65988pt.
+ [68 <./images/results/random/tanh/graph_test_acc.png>]
+Overfull \hbox (21.47334pt too wide) in paragraph at lines 385--386
+\OT1/cmr/m/n/12 As with RNN[]Tanh, we be-gin with the plot that com-pares the a
+c-cu-racy of the Watts{Strogatz
+ []
+
+<images/results/random/relu/graph_test_acc.png, id=1140, 361.35pt x 361.35pt>
+File: images/results/random/relu/graph_test_acc.png Graphic file (type png)
+<use images/results/random/relu/graph_test_acc.png>
+Package pdftex.def Info: images/results/random/relu/graph_test_acc.png  used on
+ input line 389.
+(pdftex.def)             Requested size: 201.65755pt x 201.65988pt.
+[69 <./images/results/random/relu/graph_test_acc.png>]
+<images/results/random/lstm/graph_test_acc.png, id=1148, 361.35pt x 361.35pt>
+File: images/results/random/lstm/graph_test_acc.png Graphic file (type png)
+<use images/results/random/lstm/graph_test_acc.png>
+Package pdftex.def Info: images/results/random/lstm/graph_test_acc.png  used on
+ input line 427.
+(pdftex.def)             Requested size: 201.65755pt x 201.65988pt.
+ [70 <./images/results/random/lstm/graph_test_acc.png>]
+<images/results/random/gru/graph_test_acc.png, id=1155, 361.35pt x 361.35pt>
+File: images/results/random/gru/graph_test_acc.png Graphic file (type png)
+<use images/results/random/gru/graph_test_acc.png>
+Package pdftex.def Info: images/results/random/gru/graph_test_acc.png  used on 
+input line 465.
+(pdftex.def)             Requested size: 201.65755pt x 201.65988pt.
+ [71 <./images/results/random/gru/graph_test_acc.png>]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[72]) [73]
+\openout2 = `chapters/discussion.aux'.
+
+ (./chapters/discussion.tex
+chapter 7.
+[74
+
+
+
+
+] [75]) [76]
+\openout2 = `chapters/conclusion.aux'.
+
+ (./chapters/conclusion.tex
+chapter 8.
+) [77
+
+
+
+
+] (./appendix.tex
+chapter A.
+Package hyperref Info: bookmark level for unknown listing defaults to 0 on inpu
+t line 6.
+\openout4 = `thesis.pyg'.
+
+(./_minted-thesis/default-pyg-prefix.pygstyle)
+(./_minted-thesis/default.pygstyle)
+(./_minted-thesis/7721A8EC48222B0A7A3BFEDD7F5CB58E0102E502927AACB428B4F294F23E2
+359.pygtex
+LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <12> not available
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 3.
+)
+\openout4 = `thesis.pyg'.
+
+
+(./_minted-thesis/CD3D89AB3706A6DA4B61C899CC496DF70102E502927AACB428B4F294F23E2
+359.pygtex) [78
+
+
+
+]
+chapter B.
+
+Overfull \hbox (36.0576pt too wide) in paragraph at lines 41--74
+ [][] 
+ []
+
+
+Overfull \hbox (36.0576pt too wide) in paragraph at lines 80--113
+ [][] 
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[79
+
+
+] [80]
+chapter C.
+<images/results/random/tanh/graph_nodes.png, id=1211, 361.35pt x 361.35pt>
+File: images/results/random/tanh/graph_nodes.png Graphic file (type png)
+<use images/results/random/tanh/graph_nodes.png>
+Package pdftex.def Info: images/results/random/tanh/graph_nodes.png  used on in
+put line 128.
+(pdftex.def)             Requested size: 179.24963pt x 179.252pt.
+<images/results/random/tanh/graph_edges.png, id=1212, 361.35pt x 361.35pt>
+File: images/results/random/tanh/graph_edges.png Graphic file (type png)
+<use images/results/random/tanh/graph_edges.png>
+Package pdftex.def Info: images/results/random/tanh/graph_edges.png  used on in
+put line 133.
+(pdftex.def)             Requested size: 179.24963pt x 179.252pt.
+<images/results/random/tanh/graph_density.png, id=1213, 361.35pt x 361.35pt>
+File: images/results/random/tanh/graph_density.png Graphic file (type png)
+<use images/results/random/tanh/graph_density.png>
+Package pdftex.def Info: images/results/random/tanh/graph_density.png  used on 
+input line 139.
+(pdftex.def)             Requested size: 179.24963pt x 179.252pt.
+<images/results/random/tanh/graph_layers.png, id=1214, 361.35pt x 361.35pt>
+File: images/results/random/tanh/graph_layers.png Graphic file (type png)
+<use images/results/random/tanh/graph_layers.png>
+Package pdftex.def Info: images/results/random/tanh/graph_layers.png  used on i
+nput line 144.
+(pdftex.def)             Requested size: 179.24963pt x 179.252pt.
+<images/results/random/tanh/jointplot_test_acc_nodes.png, id=1215, 677.1699pt x
+ 749.4399pt>
+File: images/results/random/tanh/jointplot_test_acc_nodes.png Graphic file (typ
+e png)
+<use images/results/random/tanh/jointplot_test_acc_nodes.png>
+Package pdftex.def Info: images/results/random/tanh/jointplot_test_acc_nodes.pn
+g  used on input line 154.
+(pdftex.def)             Requested size: 201.65755pt x 223.17555pt.
+<images/results/random/tanh/jointplot_test_acc_closeness_var.png, id=1216, 715.
+473pt x 749.4399pt>
+File: images/results/random/tanh/jointplot_test_acc_closeness_var.png Graphic f
+ile (type png)
+<use images/results/random/tanh/jointplot_test_acc_closeness_var.png>
+Package pdftex.def Info: images/results/random/tanh/jointplot_test_acc_closenes
+s_var.png  used on input line 159.
+(pdftex.def)             Requested size: 201.65755pt x 211.22543pt.
+<images/results/random/tanh/jointplot_test_acc_nodes_betweenness_var.png, id=12
+17, 739.3221pt x 749.4399pt>
+File: images/results/random/tanh/jointplot_test_acc_nodes_betweenness_var.png G
+raphic file (type png)
+<use images/results/random/tanh/jointplot_test_acc_nodes_betweenness_var.png>
+Package pdftex.def Info: images/results/random/tanh/jointplot_test_acc_nodes_be
+tweenness_var.png  used on input line 165.
+(pdftex.def)             Requested size: 201.65755pt x 204.40987pt.
+<images/results/random/tanh/jointplot_test_acc_edges.png, id=1218, 697.4055pt x
+ 749.4399pt>
+File: images/results/random/tanh/jointplot_test_acc_edges.png Graphic file (typ
+e png)
+<use images/results/random/tanh/jointplot_test_acc_edges.png>
+Package pdftex.def Info: images/results/random/tanh/jointplot_test_acc_edges.pn
+g  used on input line 170.
+(pdftex.def)             Requested size: 201.65755pt x 216.70305pt.
+[81
+
+
+ <./images/results/random/tanh/graph_nodes.png> <./images/results/random/tanh/g
+raph_edges.png> <./images/results/random/tanh/graph_density.png> <./images/resu
+lts/random/tanh/graph_layers.png>] [82 <./images/results/random/tanh/jointplot_
+test_acc_nodes.png> <./images/results/random/tanh/jointplot_test_acc_closeness_
+var.png> <./images/results/random/tanh/jointplot_test_acc_nodes_betweenness_var
+.png> <./images/results/random/tanh/jointplot_test_acc_edges.png>]
+<images/results/random/relu/graph_nodes.png, id=1236, 361.35pt x 361.35pt>
+File: images/results/random/relu/graph_nodes.png Graphic file (type png)
+<use images/results/random/relu/graph_nodes.png>
+Package pdftex.def Info: images/results/random/relu/graph_nodes.png  used on in
+put line 184.
+(pdftex.def)             Requested size: 201.65755pt x 201.65988pt.
+<images/results/random/relu/graph_edges.png, id=1237, 361.35pt x 361.35pt>
+File: images/results/random/relu/graph_edges.png Graphic file (type png)
+<use images/results/random/relu/graph_edges.png>
+Package pdftex.def Info: images/results/random/relu/graph_edges.png  used on in
+put line 189.
+(pdftex.def)             Requested size: 201.65755pt x 201.65988pt.
+<images/results/random/relu/graph_density.png, id=1238, 361.35pt x 361.35pt>
+File: images/results/random/relu/graph_density.png Graphic file (type png)
+<use images/results/random/relu/graph_density.png>
+Package pdftex.def Info: images/results/random/relu/graph_density.png  used on 
+input line 195.
+(pdftex.def)             Requested size: 201.65755pt x 201.65988pt.
+<images/results/random/relu/graph_layers.png, id=1239, 361.35pt x 361.35pt>
+File: images/results/random/relu/graph_layers.png Graphic file (type png)
+<use images/results/random/relu/graph_layers.png>
+Package pdftex.def Info: images/results/random/relu/graph_layers.png  used on i
+nput line 200.
+(pdftex.def)             Requested size: 201.65755pt x 201.65988pt.
+<images/results/random/relu/jointplot_test_acc_nodes.png, id=1240, 677.1699pt x
+ 749.4399pt>
+File: images/results/random/relu/jointplot_test_acc_nodes.png Graphic file (typ
+e png)
+<use images/results/random/relu/jointplot_test_acc_nodes.png>
+Package pdftex.def Info: images/results/random/relu/jointplot_test_acc_nodes.pn
+g  used on input line 210.
+(pdftex.def)             Requested size: 201.65755pt x 223.17555pt.
+<images/results/random/relu/jointplot_test_acc_edges.png, id=1241, 697.4055pt x
+ 749.4399pt>
+File: images/results/random/relu/jointplot_test_acc_edges.png Graphic file (typ
+e png)
+<use images/results/random/relu/jointplot_test_acc_edges.png>
+Package pdftex.def Info: images/results/random/relu/jointplot_test_acc_edges.pn
+g  used on input line 215.
+(pdftex.def)             Requested size: 201.65755pt x 216.70305pt.
+<images/results/random/relu/jointplot_test_acc_source_nodes.png, id=1242, 677.1
+699pt x 749.4399pt>
+File: images/results/random/relu/jointplot_test_acc_source_nodes.png Graphic fi
+le (type png)
+<use images/results/random/relu/jointplot_test_acc_source_nodes.png>
+Package pdftex.def Info: images/results/random/relu/jointplot_test_acc_source_n
+odes.png  used on input line 221.
+(pdftex.def)             Requested size: 201.65755pt x 223.17555pt.
+<images/results/random/relu/jointplot_test_acc_nodes_betweenness_var.png, id=12
+43, 739.3221pt x 749.4399pt>
+File: images/results/random/relu/jointplot_test_acc_nodes_betweenness_var.png G
+raphic file (type png)
+<use images/results/random/relu/jointplot_test_acc_nodes_betweenness_var.png>
+Package pdftex.def Info: images/results/random/relu/jointplot_test_acc_nodes_be
+tweenness_var.png  used on input line 226.
+(pdftex.def)             Requested size: 201.65755pt x 204.40987pt.
+ [83 <./images/results/random/relu/graph_nodes.png> <./images/results/random/re
+lu/graph_edges.png> <./images/results/random/relu/graph_density.png> <./images/
+results/random/relu/graph_layers.png>] [84 <./images/results/random/relu/jointp
+lot_test_acc_nodes.png> <./images/results/random/relu/jointplot_test_acc_edges.
+png> <./images/results/random/relu/jointplot_test_acc_source_nodes.png> <./imag
+es/results/random/relu/jointplot_test_acc_nodes_betweenness_var.png>]
+<images/results/random/lstm/graph_nodes.png, id=1260, 361.35pt x 361.35pt>
+File: images/results/random/lstm/graph_nodes.png Graphic file (type png)
+<use images/results/random/lstm/graph_nodes.png>
+Package pdftex.def Info: images/results/random/lstm/graph_nodes.png  used on in
+put line 239.
+(pdftex.def)             Requested size: 201.65755pt x 201.65988pt.
+<images/results/random/lstm/graph_edges.png, id=1261, 361.35pt x 361.35pt>
+File: images/results/random/lstm/graph_edges.png Graphic file (type png)
+<use images/results/random/lstm/graph_edges.png>
+Package pdftex.def Info: images/results/random/lstm/graph_edges.png  used on in
+put line 244.
+(pdftex.def)             Requested size: 201.65755pt x 201.65988pt.
+<images/results/random/lstm/graph_density.png, id=1262, 361.35pt x 361.35pt>
+File: images/results/random/lstm/graph_density.png Graphic file (type png)
+<use images/results/random/lstm/graph_density.png>
+Package pdftex.def Info: images/results/random/lstm/graph_density.png  used on 
+input line 250.
+(pdftex.def)             Requested size: 201.65755pt x 201.65988pt.
+<images/results/random/lstm/graph_layers.png, id=1263, 361.35pt x 361.35pt>
+File: images/results/random/lstm/graph_layers.png Graphic file (type png)
+<use images/results/random/lstm/graph_layers.png>
+Package pdftex.def Info: images/results/random/lstm/graph_layers.png  used on i
+nput line 255.
+(pdftex.def)             Requested size: 201.65755pt x 201.65988pt.
+<images/results/random/lstm/jointplot_test_acc_nodes.png, id=1264, 697.4055pt x
+ 749.4399pt>
+File: images/results/random/lstm/jointplot_test_acc_nodes.png Graphic file (typ
+e png)
+<use images/results/random/lstm/jointplot_test_acc_nodes.png>
+Package pdftex.def Info: images/results/random/lstm/jointplot_test_acc_nodes.pn
+g  used on input line 265.
+(pdftex.def)             Requested size: 201.65755pt x 216.70305pt.
+<images/results/random/lstm/jointplot_test_acc_edges.png, id=1265, 712.5822pt x
+ 749.4399pt>
+File: images/results/random/lstm/jointplot_test_acc_edges.png Graphic file (typ
+e png)
+<use images/results/random/lstm/jointplot_test_acc_edges.png>
+Package pdftex.def Info: images/results/random/lstm/jointplot_test_acc_edges.pn
+g  used on input line 270.
+(pdftex.def)             Requested size: 201.65755pt x 212.0831pt.
+<images/results/random/lstm/jointplot_test_acc_source_nodes.png, id=1266, 697.4
+055pt x 749.4399pt>
+File: images/results/random/lstm/jointplot_test_acc_source_nodes.png Graphic fi
+le (type png)
+<use images/results/random/lstm/jointplot_test_acc_source_nodes.png>
+Package pdftex.def Info: images/results/random/lstm/jointplot_test_acc_source_n
+odes.png  used on input line 276.
+(pdftex.def)             Requested size: 201.65755pt x 216.70305pt.
+<images/results/random/lstm/jointplot_test_acc_closeness_var.png, id=1267, 715.
+473pt x 749.4399pt>
+File: images/results/random/lstm/jointplot_test_acc_closeness_var.png Graphic f
+ile (type png)
+<use images/results/random/lstm/jointplot_test_acc_closeness_var.png>
+Package pdftex.def Info: images/results/random/lstm/jointplot_test_acc_closenes
+s_var.png  used on input line 281.
+(pdftex.def)             Requested size: 201.65755pt x 211.22543pt.
+ [85 <./images/results/random/lstm/graph_nodes.png> <./images/results/random/ls
+tm/graph_edges.png> <./images/results/random/lstm/graph_density.png> <./images/
+results/random/lstm/graph_layers.png>]
+<images/results/random/lstm/jointplot_test_acc_nodes_betweenness_var.png, id=12
+76, 739.3221pt x 749.4399pt>
+File: images/results/random/lstm/jointplot_test_acc_nodes_betweenness_var.png G
+raphic file (type png)
+<use images/results/random/lstm/jointplot_test_acc_nodes_betweenness_var.png>
+Package pdftex.def Info: images/results/random/lstm/jointplot_test_acc_nodes_be
+tweenness_var.png  used on input line 291.
+(pdftex.def)             Requested size: 201.65755pt x 204.40987pt.
+<images/results/random/lstm/jointplot_test_acc_edge_betweenness_var.png, id=127
+7, 734.9859pt x 749.4399pt>
+File: images/results/random/lstm/jointplot_test_acc_edge_betweenness_var.png Gr
+aphic file (type png)
+<use images/results/random/lstm/jointplot_test_acc_edge_betweenness_var.png>
+Package pdftex.def Info: images/results/random/lstm/jointplot_test_acc_edge_bet
+weenness_var.png  used on input line 296.
+(pdftex.def)             Requested size: 201.65755pt x 205.62202pt.
+ [86 <./images/results/random/lstm/jointplot_test_acc_nodes.png> <./images/resu
+lts/random/lstm/jointplot_test_acc_edges.png> <./images/results/random/lstm/joi
+ntplot_test_acc_source_nodes.png> <./images/results/random/lstm/jointplot_test_
+acc_closeness_var.png>] [87 <./images/results/random/lstm/jointplot_test_acc_no
+des_betweenness_var.png> <./images/results/random/lstm/jointplot_test_acc_edge_
+betweenness_var.png>]
+<images/results/random/gru/graph_nodes.png, id=1293, 361.35pt x 361.35pt>
+File: images/results/random/gru/graph_nodes.png Graphic file (type png)
+<use images/results/random/gru/graph_nodes.png>
+Package pdftex.def Info: images/results/random/gru/graph_nodes.png  used on inp
+ut line 309.
+(pdftex.def)             Requested size: 201.65755pt x 201.65988pt.
+<images/results/random/gru/graph_edges.png, id=1294, 361.35pt x 361.35pt>
+File: images/results/random/gru/graph_edges.png Graphic file (type png)
+<use images/results/random/gru/graph_edges.png>
+Package pdftex.def Info: images/results/random/gru/graph_edges.png  used on inp
+ut line 314.
+(pdftex.def)             Requested size: 201.65755pt x 201.65988pt.
+<images/results/random/gru/graph_density.png, id=1295, 361.35pt x 361.35pt>
+File: images/results/random/gru/graph_density.png Graphic file (type png)
+<use images/results/random/gru/graph_density.png>
+Package pdftex.def Info: images/results/random/gru/graph_density.png  used on i
+nput line 320.
+(pdftex.def)             Requested size: 201.65755pt x 201.65988pt.
+<images/results/random/gru/graph_layers.png, id=1296, 361.35pt x 361.35pt>
+File: images/results/random/gru/graph_layers.png Graphic file (type png)
+<use images/results/random/gru/graph_layers.png>
+Package pdftex.def Info: images/results/random/gru/graph_layers.png  used on in
+put line 325.
+(pdftex.def)             Requested size: 201.65755pt x 201.65988pt.
+<images/results/random/gru/jointplot_test_acc_nodes.png, id=1297, 677.1699pt x 
+749.4399pt>
+File: images/results/random/gru/jointplot_test_acc_nodes.png Graphic file (type
+ png)
+<use images/results/random/gru/jointplot_test_acc_nodes.png>
+Package pdftex.def Info: images/results/random/gru/jointplot_test_acc_nodes.png
+  used on input line 335.
+(pdftex.def)             Requested size: 201.65755pt x 223.17555pt.
+<images/results/random/gru/jointplot_test_acc_edges.png, id=1298, 697.4055pt x 
+749.4399pt>
+File: images/results/random/gru/jointplot_test_acc_edges.png Graphic file (type
+ png)
+<use images/results/random/gru/jointplot_test_acc_edges.png>
+Package pdftex.def Info: images/results/random/gru/jointplot_test_acc_edges.png
+  used on input line 340.
+(pdftex.def)             Requested size: 201.65755pt x 216.70305pt.
+<images/results/random/gru/jointplot_test_acc_source_nodes.png, id=1299, 682.22
+88pt x 749.4399pt>
+File: images/results/random/gru/jointplot_test_acc_source_nodes.png Graphic fil
+e (type png)
+<use images/results/random/gru/jointplot_test_acc_source_nodes.png>
+Package pdftex.def Info: images/results/random/gru/jointplot_test_acc_source_no
+des.png  used on input line 346.
+(pdftex.def)             Requested size: 201.65755pt x 221.5174pt.
+<images/results/random/gru/jointplot_test_acc_degree_var.png, id=1300, 700.2963
+pt x 749.4399pt>
+File: images/results/random/gru/jointplot_test_acc_degree_var.png Graphic file 
+(type png)
+<use images/results/random/gru/jointplot_test_acc_degree_var.png>
+Package pdftex.def Info: images/results/random/gru/jointplot_test_acc_degree_va
+r.png  used on input line 351.
+(pdftex.def)             Requested size: 201.65755pt x 215.81108pt.
+ [88 <./images/results/random/gru/graph_nodes.png> <./images/results/random/gru
+/graph_edges.png> <./images/results/random/gru/graph_density.png> <./images/res
+ults/random/gru/graph_layers.png>]
+<images/results/random/gru/jointplot_test_acc_closeness_var.png, id=1309, 715.4
+73pt x 749.4399pt>
+File: images/results/random/gru/jointplot_test_acc_closeness_var.png Graphic fi
+le (type png)
+<use images/results/random/gru/jointplot_test_acc_closeness_var.png>
+Package pdftex.def Info: images/results/random/gru/jointplot_test_acc_closeness
+_var.png  used on input line 361.
+(pdftex.def)             Requested size: 201.65755pt x 211.22543pt.
+<images/results/random/gru/jointplot_test_acc_nodes_betweenness_var.png, id=131
+0, 739.3221pt x 749.4399pt>
+File: images/results/random/gru/jointplot_test_acc_nodes_betweenness_var.png Gr
+aphic file (type png)
+<use images/results/random/gru/jointplot_test_acc_nodes_betweenness_var.png>
+Package pdftex.def Info: images/results/random/gru/jointplot_test_acc_nodes_bet
+weenness_var.png  used on input line 366.
+(pdftex.def)             Requested size: 201.65755pt x 204.40987pt.
+)
+[89 <./images/results/random/gru/jointplot_test_acc_nodes.png> <./images/result
+s/random/gru/jointplot_test_acc_edges.png> <./images/results/random/gru/jointpl
+ot_test_acc_source_nodes.png> <./images/results/random/gru/jointplot_test_acc_d
+egree_var.png>] [90 <./images/results/random/gru/jointplot_test_acc_closeness_v
+ar.png> <./images/results/random/gru/jointplot_test_acc_nodes_betweenness_var.p
+ng>]
+chapter without number
+
+Overfull \hbox (12.99695pt too wide) in paragraph at lines 189--189
+\OT1/cmr/m/n/12 decoder for sta-tis-ti-cal ma-chine trans-la-tion". In: \OT1/cm
+r/m/it/12 arXiv preprint arXiv:1406.1078
+ []
+
+[91
+
+
+
+
+]
+Overfull \hbox (29.23907pt too wide) in paragraph at lines 189--189
+\OT1/cmtt/m/n/12 wiley . com / doi / pdf / 10 . 1002 / minf . 201700111$[][]\OT
+1/cmr/m/n/12 . \OT1/cmr/m/sc/12 url\OT1/cmr/m/n/12 : [][]$\OT1/cmtt/m/n/12 http
+s : / / onlinelibrary .
+ []
+
+[92]
+Overfull \hbox (1.31235pt too wide) in paragraph at lines 189--189
+\OT1/cmr/m/it/12 IEEE In-ter-na-tional Con-fer-ence on Bioin-for-mat-ics and Bi
+omedicine (BIBM)\OT1/cmr/m/n/12 .
+ []
+
+[93]
+Overfull \hbox (33.6048pt too wide) in paragraph at lines 189--189
+[]\OT1/cmr/m/n/12 Stephen Mer-ity et al. \  Pointer Sen-tinel Mix-ture Mod-els"
+. In: \OT1/cmr/m/it/12 CoRR \OT1/cmr/m/n/12 abs/1609.07843
+ []
+
+[94]
+Overfull \hbox (9.51381pt too wide) in paragraph at lines 189--189
+\OT1/cmr/m/n/12 2015. \OT1/cmr/m/sc/12 url\OT1/cmr/m/n/12 : [][]$\OT1/cmtt/m/n/
+12 https : / / sebastianraschka . com / Articles / 2015 _ singlelayer _
+ []
+
+[95]
+Overfull \hbox (8.05545pt too wide) in paragraph at lines 189--189
+[]\OT1/cmr/m/n/12 Liangjian Wen et al. \  Struc-tured prun-ing of re-cur-rent n
+eu-ral net-works through
+ []
+
+[96] [97]
+\openout2 = `includes/eidesstattlicheErklaerung.aux'.
+
+ (./includes/eidesstattlicheErklaerung.tex
+chapter without number
+
+Overfull \hbox (6.71155pt too wide) in paragraph at lines 6--7
+\OT1/cmr/m/n/12 derer als der angegebe-nen Quellen und Hil-f-s-mit-tel ange-fer
+-tigt habe und alle Ausf^^?uhrungen,
+ []
+
+
+Overfull \hbox (27.66551pt too wide) in paragraph at lines 6--7
+\OT1/cmr/m/n/12 dass ich die Mas-ter-ar-beit in gle-icher oder ^^?ahnlicher For
+m noch keiner an-deren Pr^^?ufungsbeh^^?orde
+ []
+
+) [98
+
+
+
+]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 194.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 194.
+ (./thesis.aux (./includes/MA-titlepage.aux) (./includes/abstract.aux)
+(./includes/acknowledgements.aux) (./chapters/introduction.aux)
+(./chapters/literature.aux) (./chapters/background.aux) (./chapters/dataset.aux
+) (./chapters/experiments.aux) (./chapters/results.aux)
+(./chapters/discussion.aux) (./chapters/conclusion.aux)
+(./includes/eidesstattlicheErklaerung.aux))
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 194.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 194.
+Package rerunfilecheck Info: File `thesis.out' has not changed.
+(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 194.
+runsystem(rm thesis.pyg)...executed.
+
+Package logreq Info: Writing requests to 'thesis.run.xml'.
+\openout1 = `thesis.run.xml'.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 26196 strings out of 483065
+ 524350 string characters out of 5963550
+ 1386223 words of memory out of 5000000
+ 40266 multiletter control sequences out of 15000+600000
+ 547894 words of font info for 82 fonts, out of 8000000 for 9000
+ 81 hyphenation exceptions out of 8191
+ 56i,21n,82p,10101b,1530s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/share/texlive/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/f
+onts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/share/texlive/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10
+.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></
+usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmsl12.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmss17.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.p
+fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></u
+sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/share/tex
+live/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on thesis.pdf (108 pages, 4796297 bytes).
+PDF statistics:
+ 1854 PDF objects out of 2073 (max. 8388607)
+ 1478 compressed objects within 15 object streams
+ 434 named destinations out of 1000 (max. 500000)
+ 961 words of extra memory for PDF output out of 10000 (max. 10000000)
+

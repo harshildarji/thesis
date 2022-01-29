@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n}{weights} \PYG{o}{=} \PYG{p}{[]}
+\PYG{k}{for} \PYG{n}{param}\PYG{p}{,} \PYG{n}{data} \PYG{o+ow}{in} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{named\PYGZus{}parameters}\PYG{p}{():}
+    \PYG{k}{if} \PYG{l+s+s1}{\PYGZsq{}bias\PYGZsq{}} \PYG{o+ow}{not} \PYG{o+ow}{in} \PYG{n}{param} \PYG{o+ow}{and} \PYG{n}{key} \PYG{o+ow}{in} \PYG{n}{param}\PYG{p}{:}
+        \PYG{n}{weights} \PYG{o}{+=} \PYG{n+nb}{list}\PYG{p}{(}\PYG{n}{data}\PYG{o}{.}\PYG{n}{cpu}\PYG{p}{()}\PYG{o}{.}\PYG{n}{data}\PYG{o}{.}\PYG{n}{abs}\PYG{p}{()}\PYG{o}{.}\PYG{n}{numpy}\PYG{p}{()}\PYG{o}{.}\PYG{n}{flatten}\PYG{p}{())}
+\PYG{n}{threshold} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{percentile}\PYG{p}{(}\PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{n}{weights}\PYG{p}{),} \PYG{n}{percent}\PYG{p}{)}
+\end{Verbatim}

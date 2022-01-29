@@ -1,0 +1,11 @@
+\chapter{Conclusion}\label{chap:conclusion}
+
+The main objective of our thesis, as described in chapter \ref{chap:introduction}, was to investigate the effects of sparsity in recurrent neural networks. In chapter \ref{chap:experiments}, we thoroughly explained the methodology followed, with results presented in chapter \ref{chap:results}. In this chapter, we briefly summarize our outcomes.
+
+We followed two different methods to induce sparsity in recurrent networks. One method introduced sparsity by pruning a certain percent of input-to-hidden and hidden-to-hidden weights, and another method is to generate sparse structures based on random graphs.
+
+Based on the results of pruning experiments, we conclude that it is possible to reduce the weight complexity of different RNN variants by more than 60\%. Our experiments also confirmed that it is possible to regain the accuracy of a pruned model with only one epoch in most cases. One big difference between RNN\_Tanh, RNN\_ReLU, and LSTM, GRU is that LSTM and GRU can regain the original performance even with 100\% hidden-to-hidden weight pruning.
+
+Random structure experiments helped to identify the essential graph properties of a base random graph. In all four RNN variants we experimented with, two mutual graph properties are the number of nodes and node betweenness. The two most mutual and important graph properties are the number of edges and the number of source nodes.
+
+The performance prediction experiment results identified that data from RNN\_Tanh has a weak fit with all three regressors used. Data from RNN\_ReLU and GRU has moderate and strong fit Random Forest regressor, respectively. Finally,  LSTM has a moderate fit with AdaBoost regressor.

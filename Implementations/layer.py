@@ -3,8 +3,7 @@ import math
 import torch
 import torch.nn as nn
 from torch.autograd import Variable
-from torch.nn import Parameter
-from torch.nn import init
+from torch.nn import Parameter, init
 
 
 class MaskedRecurrentLayer(nn.Module):
@@ -19,7 +18,7 @@ class MaskedRecurrentLayer(nn.Module):
             as (batch, seq, feature). Default: False
     """
 
-    def __init__(self, input_size, hidden_size, mode='RNN_TANH', batch_first=False):
+    def __init__(self, input_size, hidden_size, mode="RNN_TANH", batch_first=False):
         super(MaskedRecurrentLayer, self).__init__()
 
         self.input_size = input_size
@@ -27,11 +26,11 @@ class MaskedRecurrentLayer(nn.Module):
         self.mode = mode.upper()
         self.batch_first = batch_first
 
-        if self.mode == 'RNN_TANH' or self.mode == 'RNN_RELU':
+        if self.mode == "RNN_TANH" or self.mode == "RNN_RELU":
             gate_size = hidden_size
-        elif self.mode == 'GRU':
+        elif self.mode == "GRU":
             gate_size = 3 * hidden_size
-        elif self.mode == 'LSTM':
+        elif self.mode == "LSTM":
             gate_size = 4 * hidden_size
         else:
             raise ValueError("Unrecognized mode: '{}'".format(mode))
@@ -42,8 +41,12 @@ class MaskedRecurrentLayer(nn.Module):
         self.bias_hh = Parameter(torch.randn(gate_size))
         self.reset_parameters()
 
-        self.register_buffer('mask_i2h', torch.ones((gate_size, self.input_size), dtype=torch.bool))
-        self.register_buffer('mask_h2h', torch.ones((gate_size, self.hidden_size), dtype=torch.bool))
+        self.register_buffer(
+            "mask_i2h", torch.ones((gate_size, self.input_size), dtype=torch.bool)
+        )
+        self.register_buffer(
+            "mask_h2h", torch.ones((gate_size, self.hidden_size), dtype=torch.bool)
+        )
 
     def reset_parameters(self):
         stdv = 1.0 / math.sqrt(self.hidden_size)
@@ -62,13 +65,13 @@ class MaskedRecurrentLayer(nn.Module):
         igate = torch.mm(input, (self.weight_ih * self.mask_i2h).t()) + self.bias_ih
         hgate = torch.mm(hx, (self.weight_hh * self.mask_h2h).t()) + self.bias_hh
 
-        if self.mode == 'RNN_TANH':
+        if self.mode == "RNN_TANH":
             return self.__tanh(igate, hgate)
-        elif self.mode == 'RNN_RELU':
+        elif self.mode == "RNN_RELU":
             return self.__relu(igate, hgate)
-        elif self.mode == 'GRU':
+        elif self.mode == "GRU":
             return self.__gru(igate, hgate, hx)
-        elif self.mode == 'LSTM':
+        elif self.mode == "LSTM":
             return self.__lstm(igate, hgate, hx, cx)
 
     def __tanh(self, igate, hgate):
@@ -103,9 +106,9 @@ class MaskedRecurrentLayer(nn.Module):
         return hx, cx
 
     def extra_repr(self):
-        s = '{input_size}, {hidden_size}, mode={mode}'
+        s = "{input_size}, {hidden_size}, mode={mode}"
 
         if self.batch_first:
-            s += ', batch_first={batch_first}'
+            s += ", batch_first={batch_first}"
 
         return s.format(**self.__dict__)
